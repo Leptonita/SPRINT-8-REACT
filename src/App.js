@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import ItemListShips from "./components/ItemListShips";
 import NavBar from "./components/NavBar";
 
-const API_URL = "https://swapi.dev/api/starships/?page=1";
+
+//const instance = axios.create({ baseURL: 'https://swapi.dev/api/starships' });
 
 function App() {
   const [spaceShips, setSpaceShips] = useState([]);
 
   useEffect(() => {
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((shipsData) => {
-        console.log('space ships', shipsData.results)
-        setSpaceShips(shipsData.results)
+    axios
+      .get('https://swapi.dev/api/starships/?page=1')
+      .then(res => {
+        console.log('space ships', res)
+        setSpaceShips(res.data.results)
       })
       .catch(err => console.log('error', err.message))
   }, [])

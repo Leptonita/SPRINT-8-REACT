@@ -1,3 +1,9 @@
+SPRINT 8 - REACT SPACE SHIPS
+
+
+ex1  getting data from the API with axios
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
