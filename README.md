@@ -1,7 +1,12 @@
 SPRINT 8 - REACT SPACE SHIPS
 
 
-ex1  getting data from the API with axios
+EX1 - getting data from the API with axios
+
+EX2 - linking to each ship. 
+      Using a generic image when we don't have the specific picture.
+      I also added a loading animation to show while the list of ships appears.
+      
 
 
 # Getting Started with Create React App
