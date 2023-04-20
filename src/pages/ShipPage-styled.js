@@ -20,9 +20,11 @@ padding-top: 40px;
 export const ImageContainer = styled.div`
 display: flex;
 justify-content: center;
+min-width: 675px;
+min-height: 520px;
 `;
 export const ImageShip = styled.img`
-width: 80%;
+width: 100%;
 margin: 20px auto;
 box-shadow: 0px 3px 1px 0px #006affd3;
 

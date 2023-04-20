@@ -40,18 +40,26 @@ const ShipPage = () => {
     const shipInfo = { ...shipData }
     console.log(shipInfo);
 
+    const showPicture = (pictStatus) => {
+        if (pictStatus === 200) {
+            return < ImageShip src={URL_IMG} alt={shipInfo.name} />
+        } else if (pictStatus === 404) {
+            return <ImageShip src={NoPicture} alt="Generic" />
+        } else {
+            return <Loading />
+        }
+    }
+
     return (
         <DivShip>
 
-            {shipData.length === 0
+            {shipInfo.length === 0
                 ? <Loading />
                 : (<>
                     <ShipTitle>{shipInfo.name}</ShipTitle>
                     <ImageContainer>
-                        {pictStatus === 200
-                            ? < ImageShip src={URL_IMG} alt={shipInfo.name} />
-                            : <ImageShip src={NoPicture} alt="Generic" />
-                        }
+                        {showPicture(pictStatus)}
+
                     </ImageContainer>
                     <DivTextCentered>
                         <p>MODEL: <InfoTxt>{shipInfo.model}</InfoTxt></p>
