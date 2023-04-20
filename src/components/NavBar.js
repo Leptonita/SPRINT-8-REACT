@@ -1,5 +1,6 @@
-import logo from '../sw_logo.webp';
-import { DivHeader, DivBarGridLogin, LogoImg, SpanLogin, UlMenu, LiMenu } from './NavBar-styled'
+import logo from '../assets/img/sw_logo.webp';
+import { DivHeader, DivBarGridLogin, LogoImg, SpanLogin, UlMenu, LiMenu, NavbarLink } from './NavBar-styled';
+//import { NavLink } from 'react-router-dom';
 
 const NavBarLogin = () => {
 
@@ -12,11 +13,11 @@ const NavBarLogin = () => {
 
             </DivBarGridLogin>
             <UlMenu>
-                <LiMenu> HOME </LiMenu>
-                <LiMenu> STARSHIPS </LiMenu>
+                <LiMenu> <NavbarLink to="/"> HOME </NavbarLink> </LiMenu>
+                <LiMenu> <NavbarLink to="/">STARSHIPS</NavbarLink> </LiMenu>
 
             </UlMenu>
-        </DivHeader>
+        </DivHeader >
     )
 }
 export default NavBarLogin;

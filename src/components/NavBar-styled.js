@@ -1,5 +1,6 @@
 import styled from "styled-components";
 //import logo from '../sw_logo.webp';
+import { Link } from 'react-router-dom';
 
 const greyBorder = "#4f4f4f";
 
@@ -17,6 +18,7 @@ padding: 20px 40px
 `; */
 
 export const DivHeader = styled.div`
+width: 100%;
 color: #adadad;
 `;
 
@@ -60,6 +62,22 @@ border-right: 2px solid ${greyBorder};
 &:hover {
     border-bottom: 3px solid #006affd3;
     margin-bottom: -3px;
+    color: #fff;
     z-index: 10;
 }
+`;
+
+export const NavbarLink = styled(Link)`
+color: #a7aaaa;
+text-decoration: none;
+&:focus,
+&:visited{
+    color: #b4b4b4;
+}
+&:hover{
+    color: #fff;
+}
+&:active{
+    color: #0080e1;
+};
 `;
