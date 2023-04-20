@@ -38,7 +38,7 @@ const ShipPage = () => {
     }, [])
 
     const shipInfo = { ...shipData }
-    console.log(shipInfo);
+    console.log({ shipInfo });
 
     const showPicture = (pictStatus) => {
         if (pictStatus === 200) {
@@ -53,7 +53,7 @@ const ShipPage = () => {
     return (
         <DivShip>
 
-            {shipInfo.length === 0
+            {!shipInfo.name
                 ? <Loading />
                 : (<>
                     <ShipTitle>{shipInfo.name}</ShipTitle>

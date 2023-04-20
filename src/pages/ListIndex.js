@@ -36,6 +36,7 @@ function ListIndex() {
                 ? <Loading />
                 : <ul>{listShips}</ul>
             }
+            <button>view more</button>
         </div>
     );
 }
