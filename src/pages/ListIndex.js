@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ItemListShips from "../components/ItemListShips";
-import NavBar from "../components/NavBar";
 import Loading from "../components/Loading";
 
 
@@ -32,9 +31,11 @@ function ListIndex() {
 
     return (
         <div>
-            <NavBar />
-            {spaceShips.length === 0 ? <Loading /> : <ul>{listShips}</ul>}
 
+            {spaceShips.length === 0
+                ? <Loading />
+                : <ul>{listShips}</ul>
+            }
         </div>
     );
 }

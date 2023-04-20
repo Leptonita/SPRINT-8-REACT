@@ -18,7 +18,7 @@ padding: 20px 40px
 `; */
 
 export const DivHeader = styled.div`
-width: 100%;
+width: 100vw;
 color: #adadad;
 `;
 
@@ -42,6 +42,7 @@ margin-left: auto;
 `;
 
 export const UlMenu = styled.ul`
+width: 100%;
 margin: 20px 0;
 border-top: 2px solid ${greyBorder};
 border-bottom: 2px solid ${greyBorder};

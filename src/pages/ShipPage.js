@@ -2,9 +2,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loading from '../components/Loading';
 import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt } from './ShipPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
-import NavBar from '../components/NavBar';
 
 //https://swapi.dev/api/starships
 //const instance = axios.create({ baseURL: 'https://swapi.py4e.com/api/starships' });
@@ -42,49 +42,45 @@ const ShipPage = () => {
 
     return (
         <DivShip>
-            <NavBar />
-            <ShipTitle>{shipInfo.name}</ShipTitle>
-            <ImageContainer>
-                {pictStatus === 200
-                    ? < ImageShip src={URL_IMG} alt={shipInfo.name} />
-                    : <ImageShip src={NoPicture} alt="Generic" />
-                }
-            </ImageContainer>
-            <DivTextCentered>
-                <p>MODEL: <InfoTxt>{shipInfo.model}</InfoTxt></p>
-                <p>STARSHIP CLASS: <InfoTxt>{shipInfo.starship_class}</InfoTxt></p>
-                <p>MANUFACTURER: <InfoTxt>{shipInfo.manufacturer}</InfoTxt></p>
-                <p>COST: <InfoTxt>{shipInfo.cost_in_credits}</InfoTxt></p>
-            </DivTextCentered>
 
-            <DivGrid>
-                <div>
-                    <p>CREW: <InfoTxt>{shipInfo.crew}</InfoTxt></p>
-                    <p>PASSENGER CAPACITY: <InfoTxt>{shipInfo.passengers}</InfoTxt></p>
-                    <p>CARGO CAPACITY: <InfoTxt>{shipInfo.cargo_capacity}</InfoTxt></p>
-                    <p>CONSUMABLES: <InfoTxt>{shipInfo.consumables}</InfoTxt></p>
-                    <br />
-                    <p>PILOTS: <InfoTxt>--</InfoTxt> </p>
-                    <p>FILMS: <InfoTxt>--</InfoTxt> </p>
-                    <br />
+            {shipData.length === 0
+                ? <Loading />
+                : (<>
+                    <ShipTitle>{shipInfo.name}</ShipTitle>
+                    <ImageContainer>
+                        {pictStatus === 200
+                            ? < ImageShip src={URL_IMG} alt={shipInfo.name} />
+                            : <ImageShip src={NoPicture} alt="Generic" />
+                        }
+                    </ImageContainer>
+                    <DivTextCentered>
+                        <p>MODEL: <InfoTxt>{shipInfo.model}</InfoTxt></p>
+                        <p>STARSHIP CLASS: <InfoTxt>{shipInfo.starship_class}</InfoTxt></p>
+                        <p>MANUFACTURER: <InfoTxt>{shipInfo.manufacturer}</InfoTxt></p>
+                        <p>COST: <InfoTxt>{shipInfo.cost_in_credits}</InfoTxt></p>
+                    </DivTextCentered>
 
-                </div>
-                <div>
-                    <p>LENGTH: <InfoTxt>{shipInfo.length}</InfoTxt></p>
-                    <p>MAXIMUM ATMOSPHERING SPEED: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
-                    <p>HYPERDRIVE RATING: <InfoTxt>{shipInfo.hyperdrive_rating}</InfoTxt></p>
-                    <p>MAXIMUM SPEED IN REALSPACE: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
+                    <DivGrid>
+                        <div>
+                            <p>CREW: <InfoTxt>{shipInfo.crew}</InfoTxt></p>
+                            <p>PASSENGER CAPACITY: <InfoTxt>{shipInfo.passengers}</InfoTxt></p>
+                            <p>CARGO CAPACITY: <InfoTxt>{shipInfo.cargo_capacity}</InfoTxt></p>
+                            <p>CONSUMABLES: <InfoTxt>{shipInfo.consumables}</InfoTxt></p>
+                            <br />
+                            <p>PILOTS: <InfoTxt>--</InfoTxt> </p>
+                            <p>FILMS: <InfoTxt>--</InfoTxt> </p>
+                            <br />
 
-                </div>
-            </DivGrid>
+                        </div>
+                        <div>
+                            <p>LENGTH: <InfoTxt>{shipInfo.length}</InfoTxt></p>
+                            <p>MAXIMUM ATMOSPHERING SPEED: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
+                            <p>HYPERDRIVE RATING: <InfoTxt>{shipInfo.hyperdrive_rating}</InfoTxt></p>
+                            <p>MAXIMUM SPEED IN REALSPACE: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
 
-
-
-
-
-
-
-
+                        </div>
+                    </DivGrid>
+                </>)}
         </DivShip>
     )
 }
