@@ -18,8 +18,9 @@ padding: 20px 40px
 `; */
 
 export const DivHeader = styled.div`
-width: 100vw;
+ width: 98vw; 
 color: #adadad;
+margin-left: 5px;
 `;
 
 export const DivBarGridLogin = styled.div`
@@ -54,15 +55,15 @@ list-style-type: none;
 `;
 
 export const LiMenu = styled.li`
-padding: 15px 40px;
+padding: 15px 25px;
 border-right: 2px solid ${greyBorder};
 
 &:first-child {
     border-left: 2px solid ${greyBorder};
 }
 &:hover {
-    border-bottom: 3px solid #006affd3;
-    margin-bottom: -3px;
+    border-bottom: 4px solid #006affd3;
+    margin-bottom: -4px;
     color: #fff;
     z-index: 10;
 }

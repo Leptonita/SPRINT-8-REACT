@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const DivItemListShips = styled.div`
-width: 60%;
+width: 100%; 
 background-color: rgba(42, 42, 42, 0.7);
 color: #c1c1c1;
-padding: 15px 30px;
-margin: 10px auto;
+padding: 25px 30px;
+margin: 20px auto;
 `;
 export const P300 = styled.p`
 font-weight: 300;

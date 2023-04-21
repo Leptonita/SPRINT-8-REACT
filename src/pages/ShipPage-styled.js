@@ -3,6 +3,7 @@ import styled from "styled-components";
 /* background-image: url(${Skystars});*/
 
 export const DivShip = styled.div`
+width: 100%; 
 color: #f9f9f9;
 text-transform: uppercase;
 display: flex;

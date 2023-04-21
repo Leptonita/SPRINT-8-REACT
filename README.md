@@ -26,7 +26,9 @@ EX2 - linking to each ship.
 
 EX3 - pagination and Infinite Scroll
 
-      - ex3-1 Infinite Scroll, page order inconsistent (to fix)
+      - ex3 v1 Infinite Scroll, page order inconsistent (to fix)
+
+      - ex3 v2 Pagination - button view more
        
       
 
