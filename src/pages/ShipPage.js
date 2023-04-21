@@ -1,14 +1,9 @@
-//import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt } from './ShipPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
-
-//https://swapi.dev/api/starships
-//const instance = axios.create({ baseURL: 'https://swapi.py4e.com/api/starships' });
-
 
 const ShipPage = () => {
     const { id } = useParams();
@@ -94,7 +89,7 @@ const ShipPage = () => {
 }
 export default ShipPage;
 
-/* //con traer datos objeto con Link y state
+/* //alternativa al get the axios, traer datos objeto con Link y state
     let { state } = useLocation(); 
     console.log({ state }, { id })
     const shipData = state.shipInfo;
