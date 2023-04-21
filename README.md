@@ -3,16 +3,30 @@ SPRINT 8 - REACT SPACE SHIPS
 
 EX1 - getting data from the API with axios
 
-EX2 - linking to each ship. 
+EX2 - linking to each ship.
+
        - Using a generic image when we don't have the specific picture.
+
        - I also added a loading animation to show while the list of ships appears.
+
        - Background photo by Paul Volkmer at Unsplash
+
       NavBar updates: 
+
        - using Layout with NavBar and Outlet, 
+
        - 100vw rather than 100% to avoid horizontal movements
+
       ShipPage updates:
+
        - Loading for ship data and its picture
+
        - improvement on picture display according to request status
+
+
+EX3 - pagination and Infinite Scroll
+
+      - ex3-1 Infinite Scroll, page order inconsistent (to fix)
        
       
 
