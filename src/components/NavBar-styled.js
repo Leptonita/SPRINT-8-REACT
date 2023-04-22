@@ -1,6 +1,6 @@
 import styled from "styled-components";
 //import logo from '../sw_logo.webp';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const greyBorder = "#4f4f4f";
 
@@ -115,15 +115,19 @@ border-right: 2px solid ${greyBorder};
 &:first-child {
     border-left: 2px solid ${greyBorder};
 }
+
 &:hover {
-    border-bottom: 4px solid #006affd3;
+    border-bottom: 4px solid #0080e1;
     margin-bottom: -4px;
     color: #fff;
     z-index: 10;
 }
+ &:active{
+    color: #0080e1;
+}; 
 `;
 
-export const NavbarLink = styled(Link)`
+export const NavbarLink = styled(NavLink)`
 color: #a7aaaa;
 text-decoration: none;
 &:focus,
