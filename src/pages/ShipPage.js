@@ -57,10 +57,12 @@ const ShipPage = () => {
 
                     </ImageContainer>
                     <DivTextCentered>
-                        <p>MODEL: <InfoTxt>{shipInfo.model}</InfoTxt></p>
-                        <p>STARSHIP CLASS: <InfoTxt>{shipInfo.starship_class}</InfoTxt></p>
-                        <p>MANUFACTURER: <InfoTxt>{shipInfo.manufacturer}</InfoTxt></p>
-                        <p>COST: <InfoTxt>{shipInfo.cost_in_credits}</InfoTxt></p>
+                        <div>
+                            <p>MODEL: <InfoTxt>{shipInfo.model}</InfoTxt></p>
+                            <p>STARSHIP CLASS: <InfoTxt>{shipInfo.starship_class}</InfoTxt></p>
+                            <p>MANUFACTURER: <InfoTxt>{shipInfo.manufacturer}</InfoTxt></p>
+                            <p>COST: <InfoTxt>{shipInfo.cost_in_credits}</InfoTxt></p>
+                        </div>
                     </DivTextCentered>
 
                     <DivGrid>
@@ -73,7 +75,6 @@ const ShipPage = () => {
                             <p>PILOTS: <InfoTxt>--</InfoTxt> </p>
                             <p>FILMS: <InfoTxt>--</InfoTxt> </p>
                             <br />
-
                         </div>
                         <div>
                             <p>LENGTH: <InfoTxt>{shipInfo.length}</InfoTxt></p>

@@ -22,7 +22,11 @@ export const ImageContainer = styled.div`
 display: flex;
 justify-content: center;
 min-width: 675px;
-min-height: 520px;
+
+@media(max-width: 768px) {
+     width: 90%;
+     min-width: 300px;
+  }
 `;
 export const ImageShip = styled.img`
 width: 100%;
@@ -36,6 +40,14 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 margin-top: 20px;
+
+@media(max-width: 768px) {
+     display: grid;
+     
+     grid-template-columns: 1fr;
+     margin-top: 20px;
+     padding:20px;
+  }
 `;
 
 export const DivGrid = styled.div`
@@ -44,6 +56,11 @@ grid-template-columns: 1fr 1fr;
 justify-content: center;
 margin-top: 30px;
 gap: 90px;
+@media(max-width: 768px) {
+     grid-template-columns: 1fr;
+     margin-top: 20px;
+     gap:10px;
+  }
 `;
 
 export const InfoTxt = styled.span`

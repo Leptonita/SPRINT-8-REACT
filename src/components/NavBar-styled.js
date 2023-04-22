@@ -28,18 +28,72 @@ display: grid;
 height: 130px;
 grid-template-columns: 1fr 1fr 1fr ;
 align-items: center;
-padding: 20px 40px
+padding: 20px 30px;
+@media(max-width: 768px) {
+    padding: 20px;
+  }
+`;
+export const DivImg = styled.div`
+display: flex;
+justify-content: center;
 `;
 
 export const LogoImg = styled.img`
 width: 210px ;
 margin: 10px auto;
+@media(max-width: 768px) {
+    min-width: 140px;
+    margin-right: 5px;
+  }
+`;
+export const DivLoginLeft = styled.div`
+visibility: hidden;
+
+@media(max-width: 768px) {
+    visibility: visible;
+    display: block;
+    min-width: 100px;
+  }
+`;
+export const DivLoginLeftLinks = styled.div`
+display:none;
+
+@media(max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const DivLogin = styled.div`
+display: flex;
+flex-flow: row wrap;
+align-content: flex-end;
+margin-left: auto;
+
+@media(max-width: 768px) {
+    flex: column; 
+   /*  margin-left: 0;*/
+   align-content: flex-end;
+   margin-left: 10px
+  }
 `;
 
 export const SpanLogin = styled.span`
-display: flex;
+margin-right: 20px;
+@media(max-width: 768px) {
+     display:none;
+  }
+`;
+
+export const MenuMobile = styled.span`
+display:none;
+color: yellow;
+cursor: pointer;
+
+@media(max-width: 768px) {
+    display: flex;
 align-content: flex-end;
 margin-left: auto;
+  }
 `;
 
 export const UlMenu = styled.ul`
@@ -83,3 +137,4 @@ text-decoration: none;
     color: #0080e1;
 };
 `;
+

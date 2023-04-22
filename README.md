@@ -29,6 +29,9 @@ EX3 - pagination and Infinite Scroll
       - ex3 v1 Infinite Scroll, page order inconsistent (to fix)
 
       - ex3 v2 Pagination - button view more
+
+EX4 - styling updates
+
        
       
 
