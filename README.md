@@ -32,6 +32,13 @@ EX3 - pagination and Infinite Scroll
 
 EX4 - styling updates
 
+EX5 - welcome page
+
+      v1 Home page without top menu visible
+
+      v2 Home page with the top menu with highlighting of the active page 
+      
+
        
       
 

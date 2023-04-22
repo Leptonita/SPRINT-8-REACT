@@ -4,7 +4,7 @@ import V19 from '../assets/img/v-19-transp2.png';
 
 export const DivHome = styled.div`
 width: 100vw;
-height: 72vh;
+height: 65vh;
 margin-top: -22px;
 background-image: url(${V19});
 background-position: right center;

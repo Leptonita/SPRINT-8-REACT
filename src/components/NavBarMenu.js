@@ -8,7 +8,7 @@ const NavBarMenu = () => {
         <UlMenu>
             <NavbarLink
                 style={{
-                    borderBottom: useMatch({ path: "/" }) ? "4px solid #0436ead2" : "0px", display: useMatch({ path: "/" }) ? "none" : "flex"
+                    borderBottom: useMatch({ path: "/" }) ? "4px solid #0436ead2" : "0px", /* display: useMatch({ path: "/" }) ? "none" : "flex" */
                 }}
                 to="/">
                 <LiMenu> HOME </LiMenu>
@@ -17,7 +17,7 @@ const NavBarMenu = () => {
             <NavbarLink
                 style={{
                     borderBottom: useMatch({ path: "/starships" }) ? "4px solid #0436ead2" : "0px",
-                    display: useMatch({ path: "/" }) ? "none" : "flex"
+                    /* display: useMatch({ path: "/" }) ? "none" : "flex" */
                 }}
 
                 to="/starships">

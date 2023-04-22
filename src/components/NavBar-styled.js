@@ -117,7 +117,7 @@ border-right: 2px solid ${greyBorder};
 }
 
 &:hover {
-    border-bottom: 4px solid #0080e1;
+    border-bottom: 4px solid white;
     margin-bottom: -4px;
     color: #fff;
     z-index: 10;
