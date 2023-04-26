@@ -8,7 +8,10 @@ const NavBarMenu = () => {
         <UlMenu>
             <NavbarLink
                 style={{
-                    borderBottom: useMatch({ path: "/" }) ? "4px solid #0436ead2" : "0px", /* display: useMatch({ path: "/" }) ? "none" : "flex" */
+                    /* borderBottom: useMatch({ path: "/" }) ? "2px solid #fffaded2" : "0px", */
+                    boxShadow: useMatch({ path: "/" }) ? "0px -6px 3px -3px #fffadedd inset" : "none",
+                    color: useMatch({ path: "/" }) ? "#fffade" : "#b4b4b4"
+                    /* display: useMatch({ path: "/" }) ? "none" : "flex" */
                 }}
                 to="/">
                 <LiMenu> HOME </LiMenu>
@@ -16,8 +19,10 @@ const NavBarMenu = () => {
 
             <NavbarLink
                 style={{
-                    borderBottom: useMatch({ path: "/starships" }) ? "4px solid #0436ead2" : "0px",
-                    /* display: useMatch({ path: "/" }) ? "none" : "flex" */
+                    boxShadow: useMatch({ path: "/starships" }) ? "0px -6px 3px -3px #fffadedd inset" : "none",
+                    color: useMatch({ path: "/starships" }) ? "#fffade" : "#b4b4b4"
+                    /* borderBottom: useMatch({ path: "/starships" }) ? "4px solid #fffaded2" : "0px",
+                    display: useMatch({ path: "/" }) ? "none" : "flex" */
                 }}
 
                 to="/starships">

@@ -11,7 +11,7 @@ function ListIndex() {
     const [fetchedNextPage, setFetchedNextPage] = useState(null)
 
     const loadMore = () => {
-
+        console.log({ fetchedNextPage });
         if (status === 200 && fetchedNextPage !== null) {
             //axios getting another page of data to add to the array of spaceShips
             axios

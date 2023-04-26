@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import V19 from '../assets/img/v-19-transp2.png';
 
 export const DivHome = styled.div`
-width: 100vw;
+width: 98vw;
 height: 65vh;
 margin-top: -22px;
 background-image: url(${V19});
@@ -12,16 +12,16 @@ background-position: right center;
   background-size: 90%;
 align-items: center;
 @media(max-width: 769px) {
-    background-position: right bottom;
+   background-size: 40%;
   } 
 `;
 
 export const DivTxt = styled.div`
 /* text-transform: uppercase; */
 font-size: 1.2rem;
-width: 30%;
+width: 35%;
 color: #dcdcdc;
-margin: 50px auto;
+margin: 50px 20%;
 align-items: center;
 
 @media(max-width: 769px) {

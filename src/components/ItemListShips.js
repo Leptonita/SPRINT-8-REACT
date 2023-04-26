@@ -1,4 +1,4 @@
-import { DivItemListShips, P300, P500, NavShipLink } from './ItemListShips-styled'
+import { DivItemListShips, Plight, P300, P500, NavShipLink } from './ItemListShips-styled'
 
 
 const ItemListShips = (props) => {
@@ -6,10 +6,17 @@ const ItemListShips = (props) => {
     const { id, name, model } = props;
 
     return (
+
         <DivItemListShips>
-            <P500><NavShipLink to={`/ship/${id}`} >{name.toUpperCase()}</NavShipLink> </P500>
+            <NavShipLink to={`/ship/${id}`} >
+                <Plight> </Plight>
+                <P500>
+                    {name.toUpperCase()}
+                </P500>
+            </NavShipLink>
             <P300>{model}</P300>
         </DivItemListShips >
+
     )
 }
 export default ItemListShips;

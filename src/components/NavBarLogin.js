@@ -1,14 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../assets/img/sw_logo.webp';
 import { DivBarGridLogin, DivImg, LogoImg, DivLogin, DivLoginLeft, DivLoginLeftLinks, SpanLogin, MenuMobile } from './NavBar-styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Login from './Login';
 
 
 const NavBarLogin = () => {
 
     const [isActive, setIsActive] = useState(false);
+    const [loginIsClicked, setLoginIsClicked] = useState(false);
+    const [signupIsClicked, setSignupIsClicked] = useState(false);
+    const [modalState, setModalState] = useState(false);
 
+    /* useEffect(() => {
+        setLoginIsClicked(loginIsClicked);
+        setSignupIsClicked(signupIsClicked);
+    }, [loginIsClicked, signupIsClicked])
+*/
+    const showModalLogin = () => {
+        setLoginIsClicked((c) => !c);
+        setModalState((m) => !m);
+        setSignupIsClicked(false);
+    }
+
+    const showModalSignUp = () => {
+        setSignupIsClicked((c) => !c);
+        setModalState((m) => !m);
+        setLoginIsClicked(false);
+    }
+    /* const showModal = () => {
+         setModalState(!modalState);
+     }  */
+    console.log({ loginIsClicked }, { signupIsClicked }, { modalState })
     return (
 
         <DivBarGridLogin>
@@ -18,8 +42,22 @@ const NavBarLogin = () => {
                 </MenuMobile>
                 {isActive && (
                     <DivLoginLeftLinks>
-                        <p>LOG IN </p>
-                        <p> SIGN UP</p>
+                        <br />
+                        <p onClick={showModalLogin}>LOGIN </p>
+                        {loginIsClicked &&
+                            <Login
+                                modalVis={modalState} changeModalVis={setModalState}
+                                modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
+                                modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
+                                sigC={false} logC={true} />}
+                        <br />
+                        <p onClick={showModalSignUp}> SIGN UP </p>
+                        {signupIsClicked &&
+                            <Login
+                                modalVis={modalState} changeModalVis={setModalState}
+                                modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
+                                modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
+                                sigC={true} logC={false} />}
                     </DivLoginLeftLinks>
                 )}
 
@@ -29,8 +67,21 @@ const NavBarLogin = () => {
             </DivImg>
 
             <DivLogin>
-                <SpanLogin>LOG IN </SpanLogin>
-                <SpanLogin> SIGN UP</SpanLogin>
+                <SpanLogin onClick={showModalLogin}>LOG IN </SpanLogin>
+                {loginIsClicked &&
+                    <Login
+                        modalVis={modalState} changeModalVis={setModalState}
+                        modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
+                        modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
+                        sigC={false} logC={true} />}
+
+                <SpanLogin onClick={showModalSignUp}> SIGN UP</SpanLogin>
+                {signupIsClicked &&
+                    <Login
+                        modalVis={modalState} changeModalVis={setModalState}
+                        modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
+                        modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
+                        sigC={true} logC={false} />}
             </DivLogin>
 
         </DivBarGridLogin>
