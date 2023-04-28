@@ -138,11 +138,13 @@ margin: 10px auto;
 export const BtnsIds = styled.button`
 width: 100%;
 height: 40px;
+margin-bottom: 10px;
 font-weight: bold;
 background-color: ${colors.greyBorder};
 border: 2px solid ${colors.lines};
 color: white;
 border-radius: 5px;
+transition: all 0.5s ease-in-out;
 cursor: pointer;
 
 &:hover{

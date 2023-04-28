@@ -3,7 +3,7 @@ import LogoDS from '../assets/img/disney-starwars.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faCircleCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { OverlayLogin, Header, ImgDS, BtnCerrar, Form, DivInput, Input, Icon, DivBtns, ErrorMessage, BtnsIds } from './Login-styled';
-import { useContext } from 'react';
+//import { useContext } from 'react';
 import { useMyContext } from '../application/Provider';
 
 const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, changeSignClick }) => {
@@ -19,13 +19,13 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         }
     });
     //getting last user from localStorage    
-    const [user, setUser] = useState(() => {
+    const [userLS, setUserLS] = useState(() => {
         const lastUser = JSON.parse(localStorage.getItem("userStored"));
         return lastUser ? lastUser : { "email": "", "password": "" };
     });
 
-    const [email, setEmail] = useState(user.email);
-    const [password, setPassword] = useState(user.password);
+    const [email, setEmail] = useState(userLS.email);
+    const [password, setPassword] = useState(userLS.password);
 
 
     const [validEmail, setValidEmail] = useState(false);
@@ -36,12 +36,12 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
 
     useEffect(() => {
 
-        localStorage.setItem("userStored", JSON.stringify(user));
+        localStorage.setItem("userStored", JSON.stringify(userLS));
         localStorage.setItem("usersStored", JSON.stringify(users));
 
         // localStorage.setItem("email", JSON.stringify(email));
         //localStorage.setItem("password", JSON.stringify(password));
-    }, [users, user]);
+    }, [users, userLS]);
 
     useEffect(() => {
         emailValidation();
@@ -54,12 +54,12 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         //email no empty
         if (inputEmail !== undefined) {
             setEmail(inputEmail);
-            const userStored = users.find(user => user.email === inputEmail);
+            const userStored = users.find(client => client.email === inputEmail);
             //if user's email  already exists in users Array in localStorage
             if (userStored) {
-                setUser(userStored);
+                setUserLS(userStored);
             } else {
-                setUser({ ...user, "email": inputEmail });
+                setUserLS({ ...userLS, "email": inputEmail });
             }
         }
     }
@@ -70,40 +70,42 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         if (inputPassword !== undefined) {
             setPassword(inputPassword);
         }
-        setUser({ ...user, "password": inputPassword });
+        setUserLS({ ...userLS, "password": inputPassword });
     }
 
     const emailValidation = () => {
         //email validation
         const expression = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
         (expression.test(email)) ? setValidEmail(true) : setValidEmail(false)
-        // console.log({ validEmail });
+        console.log({ validEmail });
     }
 
     const passwordValidation = () => {
         //password validation: 4 to 12 elements
         const expression = /^.{4,12}$/;
         (expression.test(password)) ? setValidPassword(true) : setValidPassword(false)
-        //console.log({ validPassword });
+        console.log({ validPassword });
     }
 
     const handleSignup = (event) => {
         event.preventDefault();
         //find user 
-        const userStored = users.find(user => user.email === email);
+        const userStored = users.find(client => client.email === email);
         //if user's email already exists in users Array in localStorage
         if (userStored) {
-            setUser(userStored);
+            setUserLS(userStored);
             setMessage("This user's email address already exists");
         }
+        console.log({ userStored }, 'validPassword', validPassword, 'validEmail', validEmail)
         //Sign up create new user
-        if (!userStored && validPassword && validEmail) {
+        if (userStored === undefined && validPassword && validEmail) {
             //add new user
             setUsers([...users, { key: users.length + 1, email, password }]);
-            setIsLoggedIn(true);
+            //setIsLoggedIn(true);
             setMessage('Welcome to the app, you are in');
-            console.log(email, ", ", password)
-            setState({ ...state, user: email })
+            console.log(email, ", ", password);
+            setState({ ...state, user: email });
+            changeModalVis(false);
         } else {
             //check email and password for login
         }
@@ -112,22 +114,24 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
     const handleLogin = (event) => {
         event.preventDefault();
 
-        const userStored = users.find(user => user.email === email);
+        const userStored = users.find(client => client.email === email);
         //if user's email  already exists in users Array in localStorage
         if (userStored) {
-            setUser(userStored);
+            setUserLS(userStored);
 
             if (userStored !== null) {
                 if (userStored.password === password) {
                     console.log({ userStored }, 'logged');
-                    setIsLoggedIn(true);
+                    //setIsLoggedIn(true);
+
                     setMessage('Welcome to the app, you are in');
-                    setState({ ...state, user: email })
+                    setState({ ...state, user: email });
+                    changeModalVis(false);
                 } else {
                     console.log({ userStored }, 'NO-logged');
                     setIsLoggedIn(false);
                     setMessage('Sorry, check the password');
-                    setState({ ...state, user: null })
+                    setState({ ...state, user: null });
                 }
             }
         } else {
@@ -139,7 +143,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         e.preventDefault();
         setEmail('');
         setPassword('');
-        setUser(null);
+        setUserLS(null);
         setValidEmail(false);
         setValidPassword(false);
 

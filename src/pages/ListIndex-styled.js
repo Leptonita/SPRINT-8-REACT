@@ -19,9 +19,12 @@ border-radius: 30px;
 display: block;
 margin: 20px auto;
 cursor: pointer;
+border: 3px solid #000515d2;
+transition: all 0.5s ease-in-out;
+
 &:hover {
     background-color: #181818;
     color: white;
-    border: 2px solid #fade4b;
+    border: 3px solid #fade4b;
 }
 `;
