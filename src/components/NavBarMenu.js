@@ -1,8 +1,9 @@
 import { useMatch } from 'react-router-dom';
 import { UlMenu, LiMenu, NavbarLink } from './NavBar-styled';
+import { useMyContext } from '../application/Provider';
 
 const NavBarMenu = () => {
-
+    const [state, setState] = useMyContext();
     return (
 
         <UlMenu>
@@ -26,6 +27,7 @@ const NavBarMenu = () => {
                 }}
 
                 to="/starships">
+
                 <LiMenu> STARSHIPS</LiMenu>
             </NavbarLink>
 

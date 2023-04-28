@@ -4,7 +4,10 @@ import ItemListShips from "../components/ItemListShips";
 import Loading from "../components/Loading";
 import { DivListIndex, ButtonMore } from "./ListIndex-styled";
 
+import { useMyContext } from '../application/Provider';
+
 function ListIndex() {
+    const [state, setState] = useMyContext();
     const [spaceShips, setSpaceShips] = useState([]);
     const [status, setStatus] = useState(200);
 
@@ -57,8 +60,10 @@ function ListIndex() {
         return <ItemListShips key={id} name={ship.name} model={ship.model} id={id} />
     })
 
+    console.log('desde ListIndex', state.user);
     return (
         <DivListIndex>
+
             {spaceShips.length === 0
                 ? <Loading />
                 : <ul>{listShips}</ul>

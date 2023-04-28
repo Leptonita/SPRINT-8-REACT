@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import LogoDS from '../assets/img/disney-starwars.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faCircleCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { OverlayLogin, BtnCerrar, Form, DivInput, Input, Icon, DivBtns, ErrorMessage } from './Login-styled';
+import { OverlayLogin, Header, ImgDS, BtnCerrar, Form, DivInput, Input, Icon, DivBtns, ErrorMessage, BtnsIds } from './Login-styled';
+import { useContext } from 'react';
+import { useMyContext } from '../application/Provider';
 
+const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, changeSignClick }) => {
 
-const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, changeSignClick, logC, sigC }) => {
+    const [state, setState] = useMyContext();
 
     const [users, setUsers] = useState(() => {
         try {
@@ -29,6 +32,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
     const [validPassword, setValidPassword] = useState(false);
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [message, setMessage] = useState("Enter your email address and password")
 
     useEffect(() => {
 
@@ -90,14 +94,16 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         //if user's email already exists in users Array in localStorage
         if (userStored) {
             setUser(userStored);
-            alert('user already exists');
+            setMessage("This user's email address already exists");
         }
         //Sign up create new user
         if (!userStored && validPassword && validEmail) {
             //add new user
             setUsers([...users, { key: users.length + 1, email, password }]);
             setIsLoggedIn(true);
+            setMessage('Welcome to the app, you are in');
             console.log(email, ", ", password)
+            setState({ ...state, user: email })
         } else {
             //check email and password for login
         }
@@ -115,11 +121,17 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
                 if (userStored.password === password) {
                     console.log({ userStored }, 'logged');
                     setIsLoggedIn(true);
+                    setMessage('Welcome to the app, you are in');
+                    setState({ ...state, user: email })
                 } else {
                     console.log({ userStored }, 'NO-logged');
                     setIsLoggedIn(false);
+                    setMessage('Sorry, check the password');
+                    setState({ ...state, user: null })
                 }
             }
+        } else {
+            setMessage('Sorry, this email is not registered');
         }
     }
 
@@ -139,6 +151,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         changeLogClick(false);
         changeSignClick(false);
     }
+
     return (
         <>
             {modalVis &&
@@ -147,6 +160,11 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
                         <BtnCerrar onClick={closeModal}>
                             <FontAwesomeIcon icon={faXmark} />
                         </BtnCerrar>
+                        <Header>
+                            <ImgDS src={LogoDS} alt="Disney StarWars" />
+                            {/* <h1>{modalSign ? "Sign Up" : "Login"}</h1> */}
+                            <p>{message}</p>
+                        </Header>
                         <DivInput>
                             <Input name="Email" type="email" placeholder="Email Address" value={email}
                                 onChange={handleEmail}
@@ -189,14 +207,15 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
 
                         <br />
                         <DivBtns>
-                            {sigC && <button onClick={handleSignup}> Create New Account </button>}
+                            {/* ,logC  sigC*/}
+                            {modalSign && <BtnsIds onClick={handleSignup}> Create New Account </BtnsIds>}
 
-                            {logC && <button onClick={handleLogin}> LOGIN </button>}
+                            {modalLog && <BtnsIds onClick={handleLogin}> LOGIN </BtnsIds>}
 
-                            {isLoggedIn && <div>user is logged in</div>}
-                            {/* {isLoggedIn && <div>number of users created: {users.length} </div>} */}
+                            {/* {isLoggedIn && <div>user is logged in</div>}
+                             {isLoggedIn && <div>number of users created: {users.length} </div>} 
 
-                            {!isLoggedIn && <div>no logged yet, ...</div>}
+                            {!isLoggedIn && <div>no logged yet, ...</div>}*/}
                         </DivBtns>
                     </Form>
                 </OverlayLogin >

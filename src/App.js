@@ -1,12 +1,14 @@
 import Routes from './application/Router';
+import Provider from './application/Provider';
+
 function App() {
 
-
-
   return (
-    <div>
-      <Routes />
-    </div>
+    <Provider>
+      <div>
+        <Routes />
+      </div>
+    </Provider>
   );
 }
 

@@ -25,6 +25,18 @@ align-items: center;
 justify-content:  center; /**/
 `;
 
+export const Header = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px 0;
+`;
+
+export const ImgDS = styled.img`
+width: 80%;
+margin-bottom: 30px;
+`;
+
 export const BtnCerrar = styled.div`
 position: absolute;
 top:10px;
@@ -49,18 +61,23 @@ align-items: center;
 
 export const Form = styled.form`
 position: relative;
-width: 450px;
+width: 500px;
 border: 2px solid ${colors.greyBorder};
 border-radius: 5px;
-margin-top: -50px;
+margin-top: -30px;
 padding: 30px 40px;
 background-color: #001;
+
+@media(max-width: 768px) {
+    width: 90%;
+    margin-right: 5px;
+  }
 `;
 
 export const DivInput = styled.div`
 	position: relative;
 	z-index: 90;
-    width: 300px;
+    width: 90%;
     margin: 10px auto;
 `;
 
@@ -114,6 +131,23 @@ visibility: visible;
 `;
 
 export const DivBtns = styled.div`
-width: 300px;
+width: 90%;
 margin: 10px auto;
+`;
+
+export const BtnsIds = styled.button`
+width: 100%;
+height: 40px;
+font-weight: bold;
+background-color: ${colors.greyBorder};
+border: 2px solid ${colors.lines};
+color: white;
+border-radius: 5px;
+cursor: pointer;
+
+&:hover{
+    background-color: ${colors.lines};
+    border: 1px solid ${colors.greyBorder};
+    color: black;
+}
 `;

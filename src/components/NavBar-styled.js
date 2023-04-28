@@ -77,7 +77,14 @@ margin-left: auto;
   }
 `;
 
-export const SpanLogin = styled.span`
+export const LinkIds = styled.span`
+cursor: pointer;
+&:hover {
+  color: #fff;  
+}
+`;
+
+export const SpanLogin = styled(LinkIds)`
 margin-right: 20px;
 @media(max-width: 768px) {
      display:none;

@@ -45,6 +45,8 @@ EX6 - Login - SignUp in a same component (Login).
       Therefore by clickin the login button we activate the login functionality and when clicking on Sign up, the same component provides us with the functionality to create a new user.
 
       There is validation of email and password
+
+EX -  Private routes and CONTEXT API to prevent visiting SpaceShips withouta previous Login
       
 
        
