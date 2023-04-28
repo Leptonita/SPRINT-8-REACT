@@ -101,6 +101,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         if (userStored === undefined && validPassword && validEmail) {
             //add new user
             setUsers([...users, { key: users.length + 1, email, password }]);
+            setUserLS({ ...userLS, "password": password });
             //setIsLoggedIn(true);
             setMessage('Welcome to the app, you are in');
             console.log(email, ", ", password);
@@ -123,13 +124,14 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
                 if (userStored.password === password) {
                     console.log({ userStored }, 'logged');
                     //setIsLoggedIn(true);
-
+                    setUserLS(userStored);
                     setMessage('Welcome to the app, you are in');
                     setState({ ...state, user: email });
                     changeModalVis(false);
                 } else {
                     console.log({ userStored }, 'NO-logged');
-                    setIsLoggedIn(false);
+                    //setIsLoggedIn(false);
+                    setUserLS({ ...userLS, "password": password });
                     setMessage('Sorry, check the password');
                     setState({ ...state, user: null });
                 }
@@ -190,7 +192,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
                         </DivInput>
 
                         <DivInput>
-                            <Input name="Password" type="password" placeholder="password" value={password}
+                            <Input name="Password" type="text" placeholder="password" value={password}
                                 onChange={handlePassword}
                                 onKeyUp={passwordValidation}
                                 onBlur={passwordValidation}
