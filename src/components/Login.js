@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import LogoDS from '../assets/img/disney-starwars.png';
+import LogoDS from '../assets/img/spaceships-starwars.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faCircleCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { OverlayLogin, Header, ImgDS, BtnCerrar, Form, DivInput, Input, Icon, DivBtns, ErrorMessage, BtnsIds } from './Login-styled';
@@ -98,7 +98,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         }
         console.log({ userStored }, 'validPassword', validPassword, 'validEmail', validEmail)
         //Sign up create new user
-        if (userStored === undefined && validPassword && validEmail) {
+        if (!userStored && validPassword && validEmail) {
             //add new user
             setUsers([...users, { key: users.length + 1, email, password }]);
             setUserLS({ ...userLS, "password": password });

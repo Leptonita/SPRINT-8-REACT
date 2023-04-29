@@ -18,11 +18,12 @@ align-items: center;
 
 export const DivTxt = styled.div`
 /* text-transform: uppercase; */
-font-size: 1.2rem;
-width: 35%;
+font-size: 1.5rem;
+width: 43%;
 color: #dcdcdc;
 margin: 50px 20%;
 align-items: center;
+text-shadow: 2px 2px 10px rgb(253, 224, 1, 0.9);
 
 @media(max-width: 769px) {
      width: 80%;

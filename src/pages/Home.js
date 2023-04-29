@@ -33,12 +33,13 @@ const Home = () => {
                 <DivTxt>
                     A long time ago in a galaxy far, far away....
                     <br />
-                    starships, also known as spaceships, were a vessel designed for interstellar travels in the Star Wars universe.
+                    starships were designed for interstellar travels.
                     <br /><br />
                     Welcome to this visual guide of all these epic starships available through the Star Wars API.
-                    <br /> <br />....May the Force be with you!
+                    <br /> <br />Enjoy && ....May the Force be with you!
                 </DivTxt>
-                {logged && <LinkBtn to="/starships"><ButtonShips>STARSHIPS</ButtonShips></LinkBtn>}
+                {logged ? <LinkBtn to="/starships"><ButtonShips>STARSHIPS</ButtonShips></LinkBtn>
+                    : <ButtonShips onClick={showModalSignUp}>LOG IN </ButtonShips>}
                 : <Login
                     modalVis={modalState} changeModalVis={setModalState}
                     modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
