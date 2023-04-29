@@ -66,3 +66,8 @@ gap: 90px;
 export const InfoTxt = styled.span`
 color: #a2a2a2;
 `;
+
+export const DivPilots = styled.div`
+display: flex;
+
+`;

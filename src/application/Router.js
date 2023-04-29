@@ -4,7 +4,7 @@ import ListIndex from '../pages/ListIndex';
 import ShipPage from '../pages/ShipPage';
 import Home from '../pages/Home';
 import NavBar from '../components/NavBar';
-import Login from '../components/Login';
+import PilotPage from '../pages/PilotPage';
 
 
 
@@ -17,6 +17,7 @@ const Router = () => (
                 <Route exact path="starships" element={<PrivateRoute component={ListIndex} />} />
                 {/*<Route path='starships' element={<ListIndex />} />*/}
                 <Route exact path="ship/:id" element={<PrivateRoute component={ShipPage} />} />
+                <Route exact path="pilot/:idPilot" element={<PrivateRoute component={PilotPage} />} />
                 {/* <Route path="ship/:id" element={<ShipPage />} /> */}
                 { /*<Route path="login" element={<Login />} />
                  Es muy recomendable añadir esta ruta para obtener un mensaje de error en el caso de que la ruta no exista. De lo contrario, si la ruta no existe llegaremos a una página en blanco */}

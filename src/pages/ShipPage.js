@@ -2,11 +2,16 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt } from './ShipPage-styled';
+import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt, DivPilots } from './ShipPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
+
+import { useMyContext } from '../application/Provider';
+
+import PilotLink from '../components/PilotLink';
 
 const ShipPage = () => {
     const { id } = useParams();
+    const [state, setState] = useMyContext();
 
     const [shipData, setShipData] = useState({});
     const [pictStatus, setPictStatus] = useState("404");
@@ -45,6 +50,20 @@ const ShipPage = () => {
         }
     }
 
+    const pilotsArr = shipInfo.pilots;
+    console.log({ pilotsArr });
+    let pilots = "";
+    if (typeof pilotsArr !== 'undefined' && pilotsArr.length > 0) {
+        pilots = pilotsArr.map((pilot) => {
+            const piloturlArr = pilot.split("/");
+            const numPilot = piloturlArr[piloturlArr.length - 2];
+            console.log(numPilot);
+            return <PilotLink key={numPilot} idPilot={numPilot} />
+        })
+    } else {
+        pilots = <InfoTxt> </InfoTxt>;
+    }
+
     return (
         <DivShip>
 
@@ -72,7 +91,7 @@ const ShipPage = () => {
                             <p>CARGO CAPACITY: <InfoTxt>{shipInfo.cargo_capacity}</InfoTxt></p>
                             <p>CONSUMABLES: <InfoTxt>{shipInfo.consumables}</InfoTxt></p>
                             <br />
-                            <p>PILOTS: <InfoTxt>--</InfoTxt> </p>
+                            <div>PILOTS: <DivPilots>{pilots}</DivPilots> </div>
                             <p>FILMS: <InfoTxt>--</InfoTxt> </p>
                             <br />
                         </div>

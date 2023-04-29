@@ -6,7 +6,7 @@ const PrivateRoute = ({ component: Component }) => {
     return isAuthenticated && <Component />;
 };
 */
-const PrivateRoute = ({ component: Component }, { component: Login }) => {
+const PrivateRoute = ({ component: Component }) => {
     const { isAuthenticated } = useAuth();
     return isAuthenticated ? <Component /> : <Navigate to="/" />;
 };

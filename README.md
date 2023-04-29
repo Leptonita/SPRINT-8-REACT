@@ -46,7 +46,9 @@ EX6 - Login - SignUp in a same component (Login).
 
       There is validation of email and password
 
-EX -  Private routes and CONTEXT API to prevent visiting SpaceShips without a previous Login
+EX7 -  Private routes and CONTEXT API to prevent visiting SpaceShips without a previous Login.
+
+EX8 - Adding pilots photos linkable to their own page information if it is available on. 
       
 
        

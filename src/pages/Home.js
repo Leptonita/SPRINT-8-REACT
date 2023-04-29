@@ -36,7 +36,7 @@ const Home = () => {
                     starships were designed for interstellar travels.
                     <br /><br />
                     Welcome to this visual guide of all these epic starships available through the Star Wars API.
-                    <br /> <br />Enjoy && ....May the Force be with you!
+                    <br /> <br />{!logged ? "Just log in and enjoy" : "Enjoy && "} ....May the Force be with you!
                 </DivTxt>
                 {logged ? <LinkBtn to="/starships"><ButtonShips>STARSHIPS</ButtonShips></LinkBtn>
                     : <ButtonShips onClick={showModalSignUp}>LOG IN </ButtonShips>}
