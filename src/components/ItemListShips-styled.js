@@ -32,6 +32,7 @@ text-decoration: none;
 }
 &:hover{
     color: #fffade;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255, 0.7);
 }
 &:active{
     color: #f6f6f6;

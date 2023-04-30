@@ -81,6 +81,7 @@ export const LinkIds = styled.span`
 cursor: pointer;
 &:hover {
   color: #fff;  
+  text-shadow: 2px 2px 5px rgb(255, 255, 255, 0.7);
 }
 `;
 
@@ -127,6 +128,7 @@ export const LiMenu = styled.li`
     margin-bottom: -4px;*/
     color: #fff;    
     z-index: 10;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255, 0.7);
 }
  &:active{
     color: #ebe7d0d2;

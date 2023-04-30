@@ -10,6 +10,8 @@ flex-direction: column;
 align-items: center;
 `;
 
+
+
 export const PiTitle = styled.div`
 font-size: 2rem;
 font-weight: 700;
@@ -78,6 +80,22 @@ padding: 30px;
      margin-top: 10px;
      padding: 0 40px;
   }
+`;
+
+export const ButtonBack = styled.button`
+margin-left: auto;
+padding: 2px 6px;
+border-radius: 50%;
+color: #b3b3b3;
+background-color: black;
+
+cursor: pointer;
+transition: all 0.5s ease-in-out;
+&:hover {
+text-shadow: 2px 2px 15px rgb(255, 255, 255, 0.7);
+color: white;
+
+}
 `;
 
 export const DivGrid = styled.div`

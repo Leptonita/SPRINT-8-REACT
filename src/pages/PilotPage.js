@@ -3,14 +3,17 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import { useMyContext } from '../application/Provider';
-import { DivPilot, DivCard, PiTitle, ImageContainer, ImagePilot, DivDescription, InfoTxt } from './PilotsPage-styled';
+import { DivPilot, ButtonBack, DivCard, PiTitle, ImageContainer, ImagePilot, DivDescription, InfoTxt } from './PilotsPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faShare } from '@fortawesome/free-solid-svg-icons'
 
 const PilotPage = () => {
 
     const { idPilot } = useParams();
     const [state, setState] = useMyContext();
-
+    const navigate = useNavigate();
     const [pilotData, setPilotData] = useState({});
     const [pictStatus, setPictStatus] = useState("404");
 
@@ -56,7 +59,9 @@ const PilotPage = () => {
                             {showPicture(pictStatus)}
                         </ImageContainer>
                         <DivDescription>
+                            <ButtonBack onClick={() => navigate(-1)}> <FontAwesomeIcon icon={faShare} rotation={180} /></ButtonBack>
                             <div>
+
                                 <PiTitle>
                                     {pilotData.name}  </PiTitle>
                                 <br />
@@ -69,7 +74,10 @@ const PilotPage = () => {
                                 <p>HAIR COLOR: <InfoTxt>{pilotData.hair_color}</InfoTxt></p>
                                 <p>SKIN COLOR: <InfoTxt>{pilotData.skin_color}</InfoTxt></p>
                             </div>
+
+
                         </DivDescription>
+
                     </DivCard>
                 </>)}
 

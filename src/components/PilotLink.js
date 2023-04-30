@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const PilotLink = ({ idPilot }) => {
     const [state, setState] = useMyContext();
+
     const IMGPHOTOSRC = "https://starwars-visualguide.com/assets/img/characters/";
 
     return (

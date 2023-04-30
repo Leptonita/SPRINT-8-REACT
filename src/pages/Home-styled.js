@@ -23,7 +23,7 @@ width: 43%;
 color: #dcdcdc;
 margin: 50px 20%;
 align-items: center;
-text-shadow: 2px 2px 10px rgb(253, 224, 1, 0.9);
+text-shadow: 2px 2px 15px rgb(255, 255, 255, 0.7);
 
 @media(max-width: 769px) {
      width: 80%;
