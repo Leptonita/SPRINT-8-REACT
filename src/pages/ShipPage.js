@@ -2,12 +2,13 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt, DivPilots } from './ShipPage-styled';
+import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt, DivPosters } from './ShipPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
 
 import { useMyContext } from '../application/Provider';
 
 import PilotLink from '../components/PilotLink';
+import FilmLink from '../components/FilmLink';
 
 const ShipPage = () => {
     const { id } = useParams();
@@ -64,6 +65,20 @@ const ShipPage = () => {
         pilots = <InfoTxt> </InfoTxt>;
     }
 
+    const filmsArr = shipInfo.films;
+    console.log({ filmsArr });
+    let films = "";
+    if (typeof filmsArr !== 'undefined' && filmsArr.length > 0) {
+        films = filmsArr.map((film) => {
+            const filmurlArr = film.split("/");
+            const numFilm = filmurlArr[filmurlArr.length - 2];
+            console.log(numFilm);
+            return <FilmLink key={numFilm} idFilm={numFilm} />
+        })
+    } else {
+        pilots = <InfoTxt> </InfoTxt>;
+    }
+
     return (
         <DivShip>
 
@@ -75,34 +90,36 @@ const ShipPage = () => {
                         {showPicture(pictStatus)}
 
                     </ImageContainer>
-                    <DivTextCentered>
-                        <div>
-                            <p>MODEL: <InfoTxt>{shipInfo.model}</InfoTxt></p>
-                            <p>STARSHIP CLASS: <InfoTxt>{shipInfo.starship_class}</InfoTxt></p>
-                            <p>MANUFACTURER: <InfoTxt>{shipInfo.manufacturer}</InfoTxt></p>
-                            <p>COST: <InfoTxt>{shipInfo.cost_in_credits}</InfoTxt></p>
-                        </div>
-                    </DivTextCentered>
+                    <div>
+                        <DivTextCentered>
+                            <div>
+                                <p>MODEL: <InfoTxt>{shipInfo.model}</InfoTxt></p>
+                                <p>STARSHIP CLASS: <InfoTxt>{shipInfo.starship_class}</InfoTxt></p>
+                                <p>MANUFACTURER: <InfoTxt>{shipInfo.manufacturer}</InfoTxt></p>
+                                <p>COST: <InfoTxt>{shipInfo.cost_in_credits}</InfoTxt></p>
+                            </div>
+                        </DivTextCentered>
 
-                    <DivGrid>
-                        <div>
-                            <p>CREW: <InfoTxt>{shipInfo.crew}</InfoTxt></p>
-                            <p>PASSENGER CAPACITY: <InfoTxt>{shipInfo.passengers}</InfoTxt></p>
-                            <p>CARGO CAPACITY: <InfoTxt>{shipInfo.cargo_capacity}</InfoTxt></p>
-                            <p>CONSUMABLES: <InfoTxt>{shipInfo.consumables}</InfoTxt></p>
-                            <br />
-                            <div>PILOTS: <DivPilots>{pilots}</DivPilots> </div>
-                            <p>FILMS: <InfoTxt>--</InfoTxt> </p>
-                            <br />
-                        </div>
-                        <div>
-                            <p>LENGTH: <InfoTxt>{shipInfo.length}</InfoTxt></p>
-                            <p>MAXIMUM ATMOSPHERING SPEED: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
-                            <p>HYPERDRIVE RATING: <InfoTxt>{shipInfo.hyperdrive_rating}</InfoTxt></p>
-                            <p>MAXIMUM SPEED IN REALSPACE: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
+                        <DivGrid>
+                            <div>
+                                <p>CREW: <InfoTxt>{shipInfo.crew}</InfoTxt></p>
+                                <p>PASSENGER CAPACITY: <InfoTxt>{shipInfo.passengers}</InfoTxt></p>
+                                <p>CARGO CAPACITY: <InfoTxt>{shipInfo.cargo_capacity}</InfoTxt></p>
+                                <p>CONSUMABLES: <InfoTxt>{shipInfo.consumables}</InfoTxt></p>
+                                <br />
+                                <div>PILOTS: <DivPosters>{pilots}</DivPosters> </div>
+                                <div>FILMS: <DivPosters>{films}</DivPosters> </div>
+                                <br />
+                            </div>
+                            <div>
+                                <p>LENGTH: <InfoTxt>{shipInfo.length}</InfoTxt></p>
+                                <p>MAXIMUM ATMOSPHERING SPEED: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
+                                <p>HYPERDRIVE RATING: <InfoTxt>{shipInfo.hyperdrive_rating}</InfoTxt></p>
+                                <p>MAXIMUM SPEED IN REALSPACE: <InfoTxt>{shipInfo.max_atmosphering_speed}</InfoTxt></p>
 
-                        </div>
-                    </DivGrid>
+                            </div>
+                        </DivGrid>
+                    </div>
                 </>)}
         </DivShip>
     )

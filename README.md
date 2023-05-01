@@ -49,6 +49,10 @@ EX6 - Login - SignUp in a same component (Login).
 EX7 -  Private routes and CONTEXT API to prevent visiting SpaceShips without a previous Login.
 
 EX8 - Adding pilots photos linkable to their own page information if it is available on. 
+
+EX9 - Adding films with a structure similar to pilots' (a photo linkble to its film page).
+
+      changed login entry dynamic with button "start" only access from Home
       
 
        

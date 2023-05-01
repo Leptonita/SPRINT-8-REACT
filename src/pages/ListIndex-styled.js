@@ -5,7 +5,6 @@ text-transform: uppercase;
 width: 60%;
 margin: 5px auto;
 
-
 align-items: center;
 `;
 

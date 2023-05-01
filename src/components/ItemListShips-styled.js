@@ -7,6 +7,7 @@ background-color: rgba(42, 42, 42, 0.7);
 color: #c1c1c1;
 padding: 35px 30px;
 margin: 20px auto;
+border-radius: 10px;
 `;
 
 export const P300 = styled.p`

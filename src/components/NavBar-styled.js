@@ -21,6 +21,7 @@ export const DivHeader = styled.div`
  width: 98vw; 
 color: #adadad;
 margin-left: 5px;
+
 `;
 
 export const DivBarGridLogin = styled.div`
@@ -62,6 +63,25 @@ display:none;
     display: block;
   }
 `;
+
+export const DivLoginRight = styled.div`
+/* display: grid;
+grid-template-columns: 1fr;
+justify-items: end;
+align-items: start; */
+
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-content: center;
+
+@media(max-width: 768px) {
+  align-self: start;
+  margin-top: 10px;
+}
+`;
+
+
 
 export const DivLogin = styled.div`
 display: flex;
@@ -117,8 +137,8 @@ list-style-type: none;
 `;
 
 export const LiMenu = styled.li`
-/*padding: 15px 25px;
- border-right: 2px solid ${greyBorder};
+padding: 15px 25px;
+/* border-right: 2px solid ${greyBorder};
 &:first-child {
     border-left: 2px solid ${greyBorder};
 } */
@@ -137,9 +157,26 @@ export const LiMenu = styled.li`
 `;
 
 export const NavbarLink = styled(NavLink)`
-padding: 15px 25px;
+/* padding: 15px 25px; */
 color: #a7aaaa;
 text-decoration: none;
 
 `;
 
+export const DivUser = styled.div`
+display: flex;
+flex-flow: row wrap;
+text-align: right;
+margin-right: 20px;
+margin-left: auto;
+color: #555555;
+
+@media(max-width: 768px) {
+  margin-top: -30px;
+margin-right: 3px;
+font-size: 0.4rem;
+  }
+  @media(max-width: 420px) {
+  display: none;
+  }
+`;

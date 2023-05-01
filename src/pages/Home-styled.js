@@ -36,7 +36,7 @@ export const DivTxt = styled.div`
 font-size: 1.5rem;
 width: 43%;
 color: #dcdcdc;
-margin: 50px 20%;
+margin: 50px 20% 37px 20%;
 align-items: center;
 text-shadow: 2px 2px 15px rgb(255, 255, 255, 0.7);
 
@@ -44,6 +44,9 @@ text-shadow: 2px 2px 15px rgb(255, 255, 255, 0.7);
      width: 80%;
      margin: 20px;
      padding:10px 20px;
+  }
+   @media(max-width: 500px) {
+font-size: 1.2rem;
   }
 `;
 
@@ -73,4 +76,8 @@ border: 3px solid #fade4b;
     margin: 10px auto;
   }    
 
+`;
+
+export const Message = styled.span`
+color: #fade4b;
 `;

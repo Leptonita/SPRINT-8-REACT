@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import logo from '../assets/img/sw_logo.webp';
-import { DivBarGridLogin, DivImg, LogoImg, DivLogin, DivLoginLeft, DivLoginLeftLinks, LinkIds, SpanLogin, MenuMobile } from './NavBar-styled';
+import { DivBarGridLogin, DivImg, LogoImg, DivLoginRight, DivLogin, DivLoginLeft, DivLoginLeftLinks, LinkIds, SpanLogin, MenuMobile, DivUser } from './NavBar-styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Login from './Login';
 
+import { useMyContext } from '../application/Provider';
 
 const NavBarLogin = () => {
+
+    const [state, setState] = useMyContext();
+    const userLogged = state.user;
 
     const [isActive, setIsActive] = useState(false);
     const [loginIsClicked, setLoginIsClicked] = useState(false);
@@ -60,24 +64,26 @@ const NavBarLogin = () => {
             <DivImg>
                 <LogoImg src={logo} alt="Logo" />
             </DivImg>
+            <DivLoginRight>
+                <DivLogin>
+                    <SpanLogin onClick={showModalLogin}>LOG IN </SpanLogin>
+                    {loginIsClicked &&
+                        <Login
+                            modalVis={modalState} changeModalVis={setModalState}
+                            modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
+                            modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
+                        />}
 
-            <DivLogin>
-                <SpanLogin onClick={showModalLogin}>LOG IN </SpanLogin>
-                {loginIsClicked &&
-                    <Login
-                        modalVis={modalState} changeModalVis={setModalState}
-                        modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
-                        modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
-                    />}
-
-                <SpanLogin onClick={showModalSignUp}> SIGN UP</SpanLogin>
-                {signupIsClicked &&
-                    <Login
-                        modalVis={modalState} changeModalVis={setModalState}
-                        modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
-                        modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
-                    />}
-            </DivLogin>
+                    <SpanLogin onClick={showModalSignUp}> SIGN UP</SpanLogin>
+                    {signupIsClicked &&
+                        <Login
+                            modalVis={modalState} changeModalVis={setModalState}
+                            modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
+                            modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
+                        />}
+                </DivLogin>
+                <DivUser> {userLogged ? "user: " + userLogged : "no access"}</DivUser>
+            </DivLoginRight>
         </DivBarGridLogin>
     )
 }

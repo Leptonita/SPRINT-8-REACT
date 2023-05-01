@@ -28,6 +28,13 @@ min-width: 675px;
      min-width: 300px;
   }
 `;
+
+export const DivInfoShip = styled.div`
+width: 100%;
+display: grid;
+align-items: center;
+`;
+
 export const ImageShip = styled.img`
 width: 100%;
 margin: 20px auto;
@@ -42,10 +49,10 @@ justify-content: center;
 margin-top: 20px;
 
 @media(max-width: 768px) {
-     display: grid;
-     
+     display: grid;     
      grid-template-columns: 1fr;
      margin-top: 20px;
+     gap:10px;
      padding:20px;
   }
 `;
@@ -53,13 +60,15 @@ margin-top: 20px;
 export const DivGrid = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr;
-justify-content: center;
+justify-items: start;
 margin-top: 30px;
-gap: 90px;
+gap: 0px;
 @media(max-width: 768px) {
      grid-template-columns: 1fr;
+     justify-items: start;
      margin-top: 20px;
-     gap:10px;
+     gap:0px;
+     margin-left: 20px;
   }
 `;
 
@@ -67,7 +76,8 @@ export const InfoTxt = styled.span`
 color: #a2a2a2;
 `;
 
-export const DivPilots = styled.div`
+export const DivPosters = styled.div`
 display: flex;
+max-width: 280px;
 
 `;
