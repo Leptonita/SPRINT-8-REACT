@@ -10,7 +10,7 @@ const PilotLink = ({ idPilot }) => {
     return (
         <DivPilotLink>
             <Link to={`/pilot/${idPilot}`}>
-                <ImgPilotLink src={IMGPHOTOSRC + idPilot + ".jpg"} alt={"Pilot" + { idPilot }} />
+                <ImgPilotLink src={IMGPHOTOSRC + idPilot + ".jpg"} alt={`Pilot${idPilot}`} />
             </Link>
         </DivPilotLink>
     )
