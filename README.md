@@ -53,6 +53,15 @@ EX8 - Adding pilots photos linkable to their own page information if it is avail
 EX9 - Adding films with a structure similar to pilots' (a photo linkble to its film page).
 
       changed login entry dynamic with button "start" only access from Home
+
+EX10 - testing
+
+:::: Due to compatibility issues between testing library / jest / axios I had to modify package.json:
+"test": "react-scripts test --transformIgnorePatterns node_modules/?!my-library-dir/"
+
+and I wrapped each component tested with Provider and even with Routes when necessary.
+
+
       
 
        
