@@ -1,24 +1,26 @@
 import { render, screen } from "@testing-library/react";
 //import '@testing-library/jest-dom';
-import Home from "./Home";
+import Login from "./Login";
 import Provider from "../application/Provider";
 import Routes from "../application/Router";
 
 
 
-describe('Home', () => {
-    it('must display a text containing galaxy', () => {
+describe('Login', () => {
+    it('must display a text containing New', () => {
         render(
             <Provider>
-                <Routes>
-                    <Home />
-                </Routes>
+                <Login
+                    modalVis={true}
+                    changeModalVis={() => console.log("hello1")}
+                    modalLog={true}
+                    changeLogClick={() => console.log("hello2")}
+                    modalSign={true}
+                    changeSignClick={() => console.log("hello3")} />
             </Provider>
-
-
         )
         //screen.debug;
-        const finalTxt = screen.getByText(/a long time ago in a galaxy/i);
+        const finalTxt = screen.getByText(/New Account/i);
         expect(finalTxt).toBeInTheDocument();
     });
 }); /*
