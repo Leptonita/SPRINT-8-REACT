@@ -33,7 +33,7 @@ align-items: center;
 
 export const DivTxt = styled.div`
 /* text-transform: uppercase; */
-font-size: 1.5rem;
+font-size: 1.4rem;
 width: 43%;
 color: #dcdcdc;
 margin: 50px 20% 37px 20%;

@@ -52,7 +52,7 @@ max-width: 400px;
      max-width: 768px;
   }
 `;
-export const ImagePilot = styled.img`
+export const ImageFilm = styled.img`
 width: 100%;
 margin: 0;
 border-top-left-radius:10px;

@@ -19,7 +19,7 @@ const ShipPage = () => {
 
     useEffect(() => {
         axios
-            .get(`https://swapi.py4e.com/api/starships/${id}/`)
+            .get(`https://swapi.dev/api/starships/${id}/`)
             .then(res => {
                 console.log(id, { res });
                 setShipData(res.data);

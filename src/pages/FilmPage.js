@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import { useMyContext } from '../application/Provider';
-import { DivFilm, ButtonBack, DivCard, FilmTitle, ImageContainer, ImagePilot, DivDescription, InfoTxt, TextInfo } from './FilmPage-styled';
+import { DivFilm, ButtonBack, DivCard, FilmTitle, ImageContainer, ImageFilm, DivDescription, InfoTxt, TextInfo } from './FilmPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -41,11 +41,11 @@ const FilmPage = () => {
 
     const showPicture = (pictStatus) => {
         if (pictStatus === 200) {
-            return < ImagePilot src={URL_IMG} alt={filmData.name} />
+            return < ImageFilm src={URL_IMG} alt={filmData.name} />
         } else if (pictStatus === 404) {
-            return <ImagePilot src={NoPicture} alt="Generic" />
+            return <ImageFilm src={NoPicture} alt="Generic" />
         } else {
-            return <Loading />
+            return "error"
         }
     }
 
