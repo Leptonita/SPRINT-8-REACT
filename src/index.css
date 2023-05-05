@@ -2,11 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid limegreen !important; */
+  /* outline: 1px solid limegreen !important;
+   */
 }
 
 body {
-
-  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Titillium Web', 'Roboto', 'Helvetica Neue', sans-serif;
   background-color: black;
+  background-image: url("./assets/img/bg-star-to-black.jpg");
+  color: yellow;
 }

@@ -1,22 +1,20 @@
-import logo from '../sw_logo.webp';
-import { DivHeader, DivBarGridLogin, LogoImg, SpanLogin, UlMenu, LiMenu } from './NavBar-styled'
+import { useState } from 'react';
+import { DivHeader, UlMenu, LiMenu, NavbarLink } from './NavBar-styled';
+import NavBarLogin from './NavBarLogin';
+import NavBarMenu from './NavBarMenu';
+import { useMyContext } from '../application/Provider';
 
-const NavBarLogin = () => {
-
+const NavBar = () => {
+    const [state, setState] = useMyContext();
+    const [isHighlight, setIsHighlight] = useState(false);
+    //let resolved = useResolvedPath(to);
+    //let match = useMatch({ path: resolved.pathname, end: true });
+    console.log('desde NavBar', state.user);
     return (
         <DivHeader>
-            <DivBarGridLogin>
-                <span></span>
-                <LogoImg src={logo} alt="Logo" />
-                <SpanLogin>LOG IN  ||  SIGN UP</SpanLogin>
-
-            </DivBarGridLogin>
-            <UlMenu>
-                <LiMenu> HOME </LiMenu>
-                <LiMenu> STARSHIPS </LiMenu>
-
-            </UlMenu>
-        </DivHeader>
+            <NavBarLogin />
+            <NavBarMenu />
+        </DivHeader >
     )
 }
-export default NavBarLogin;
+export default NavBar;
