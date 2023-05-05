@@ -5,14 +5,14 @@ import Loading from '../components/Loading';
 import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt, DivPosters } from './ShipPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
 
-import { useMyContext } from '../application/Provider';
+//import { useMyContext } from '../application/Provider';
 
 import PilotLink from '../components/PilotLink';
 import FilmLink from '../components/FilmLink';
 
 const ShipPage = () => {
     const { id } = useParams();
-    const [state, setState] = useMyContext();
+    //const [state, setState] = useMyContext();
 
     const [shipData, setShipData] = useState({});
     const [pictStatus, setPictStatus] = useState("404");
@@ -58,7 +58,7 @@ const ShipPage = () => {
         pilots = pilotsArr.map((pilot) => {
             const piloturlArr = pilot.split("/");
             const numPilot = piloturlArr[piloturlArr.length - 2];
-            console.log(numPilot);
+            //console.log(numPilot);
             return <PilotLink key={numPilot} idPilot={numPilot} />
         })
     } else {
@@ -66,13 +66,13 @@ const ShipPage = () => {
     }
 
     const filmsArr = shipInfo.films;
-    console.log({ filmsArr });
+    //console.log({ filmsArr });
     let films = "";
     if (typeof filmsArr !== 'undefined' && filmsArr.length > 0) {
         films = filmsArr.map((film) => {
             const filmurlArr = film.split("/");
             const numFilm = filmurlArr[filmurlArr.length - 2];
-            console.log(numFilm);
+            //console.log(numFilm);
             return <FilmLink key={numFilm} idFilm={numFilm} />
         })
     } else {

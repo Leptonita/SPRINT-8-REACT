@@ -2,17 +2,17 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { useMyContext } from '../application/Provider';
+//import { useMyContext } from '../application/Provider';
 import { DivFilm, ButtonBack, DivCard, FilmTitle, ImageContainer, ImageFilm, DivDescription, InfoTxt, TextInfo } from './FilmPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faShare } from '@fortawesome/free-solid-svg-icons'
+import { faShare } from '@fortawesome/free-solid-svg-icons'
 
 const FilmPage = () => {
 
     const { idFilm } = useParams();
-    const [state, setState] = useMyContext();
+    //const [state, setState] = useMyContext();
     const navigate = useNavigate();
     const [filmData, setFilmData] = useState({});
     const [pictStatus, setPictStatus] = useState("404");
@@ -32,7 +32,7 @@ const FilmPage = () => {
     useEffect(() => {
         fetch(URL_IMG)
             .then(res => {
-                console.log({ res });
+                //console.log({ res });
                 setPictStatus(res.status);
             })
             .catch(err => console.log('error', err))

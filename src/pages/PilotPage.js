@@ -2,17 +2,17 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { useMyContext } from '../application/Provider';
+//import { useMyContext } from '../application/Provider';
 import { DivPilot, ButtonBack, DivCard, PiTitle, ImageContainer, ImagePilot, DivDescription, InfoTxt } from './PilotsPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faShare } from '@fortawesome/free-solid-svg-icons'
+import { faShare } from '@fortawesome/free-solid-svg-icons'
 
 const PilotPage = () => {
 
     const { idPilot } = useParams();
-    const [state, setState] = useMyContext();
+    // const [state, setState] = useMyContext();
     const navigate = useNavigate();
     const [pilotData, setPilotData] = useState({});
     const [pictStatus, setPictStatus] = useState("404");

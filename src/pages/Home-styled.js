@@ -1,21 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
-import V19 from '../assets/img/v-19-transp2.png';
 import Ship from '../assets/img/tier-transp.png'
-
-/* export const DivHome = styled.div`
-width: 98vw;
-height: 65vh;
-margin-top: -22px;
-background-image: url(${V19});
-background-position: right center;
- background-repeat: no-repeat;
-  background-size: 90%;
-align-items: center;
-@media(max-width: 769px) {
-   background-size: 40%;
-  } 
-`; */
 
 export const DivHome = styled.div`
 width: 98vw;
