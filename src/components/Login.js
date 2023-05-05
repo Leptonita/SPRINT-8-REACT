@@ -76,15 +76,15 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
     const emailValidation = () => {
         //email validation
         const expression = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-        (expression.test(email)) ? setValidEmail(true) : setValidEmail(false)
-        console.log({ validEmail });
+        (expression.test(email)) ? setValidEmail(true) : setValidEmail(false);
+        //console.log({ validEmail });
     }
 
     const passwordValidation = () => {
         //password validation: 4 to 12 elements
         const expression = /^.{4,12}$/;
-        (expression.test(password)) ? setValidPassword(true) : setValidPassword(false)
-        console.log({ validPassword });
+        (expression.test(password)) ? setValidPassword(true) : setValidPassword(false);
+        // console.log({ validPassword });
     }
 
     const handleSignup = (event) => {
@@ -114,6 +114,9 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
 
     const handleLogin = (event) => {
         event.preventDefault();
+
+        emailValidation();
+        passwordValidation();
 
         const userStored = users.find(client => client.email === email);
         //if user's email  already exists in users Array in localStorage
@@ -186,16 +189,16 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
                                 }
                             </Icon>
                             <ErrorMessage valid={validEmail}>
-                                Required, email must contain at least characters like numbers leters, one @ and a . (dot)
+                                {validEmail ? "valid email" : "Invalid email, it must contain at least characters like numbers leters, one @ and a . (dot)."}
                             </ErrorMessage>
 
                         </DivInput>
 
                         <DivInput>
-                            <Input name="Password" type="text" placeholder="password" value={password}
+                            <Input name="Password" type="password" placeholder="Password" value={password}
                                 onChange={handlePassword}
-                                onKeyUp={passwordValidation}
-                                onBlur={passwordValidation}
+                                /* onKeyUp={passwordValidation}
+                                onBlur={passwordValidation} */
                                 isValid={validPassword}
                             />
                             <Icon valid={validPassword}>
@@ -206,7 +209,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
 
                             </Icon>
                             <ErrorMessage valid={validPassword}>
-                                password must have 4 to 12 characters
+                                {validPassword ? "valid password" : "password must have 4 to 12 characters"}
                             </ErrorMessage>
 
                         </DivInput>

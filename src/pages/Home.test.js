@@ -5,23 +5,33 @@ import Provider from "../application/Provider";
 import Routes from "../application/Router";
 
 
+beforeAll(() => render(
+    <Provider>
+        <Routes>
+            <Home />
+        </Routes>
+    </Provider>
+))
 
 describe('Home', () => {
     it('must display a text containing galaxy', () => {
-        render(
-            <Provider>
-                <Routes>
-                    <Home />
-                </Routes>
-            </Provider>
-
-
-        )
         //screen.debug;
         const finalTxt = screen.getByText(/a long time ago in a galaxy/i);
         expect(finalTxt).toBeInTheDocument();
     });
-}); /*
+
+    it('must not display a text containing felicidad', () => {
+        const finalTxt = screen.queryByText(/felicidad/i);
+        expect(finalTxt).not.toBeInTheDocument();
+    });
+
+
+});
+
+
+
+
+/*
 
 describe('true is truthy and false is falsy', () => {
     it('true is truthy', () => {

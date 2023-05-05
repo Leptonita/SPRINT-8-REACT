@@ -123,7 +123,10 @@ font-size: 12px;
 color: ${colors.error};
 visibility: hidden;
 ${props => props.valid && css`
-visibility: hidden;
+//visibility: hidden;
+visibility: visible;
+color: ${colors.success};
+
 `}
 ${props => !props.valid && css`
 visibility: visible;
