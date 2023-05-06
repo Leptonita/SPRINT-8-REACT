@@ -26,7 +26,7 @@ const Home = () => {
         setLoginIsClicked((c) => !c);
     }
 
-    console.log({ logged })
+    //console.log({ logged })
     return (
         <>
             <NavBarLogin />
