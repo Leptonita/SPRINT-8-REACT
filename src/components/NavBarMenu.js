@@ -7,7 +7,9 @@ import Login from './Login';
 const NavBarMenu = () => {
     const [state, setState] = useMyContext();
     const logged = !!state.user;
+    const isHome = state.home
 
+    //console.log("state.home", state.home)
     //const logged = false;
     //inicializo para las 3 el context (!!state.user) para que se abra la ventana automáticamente si no está logeado.
     //si sólo quiero activar la pantalla de login con boton, entonces los 3 se inicializan en false
@@ -33,7 +35,7 @@ const NavBarMenu = () => {
     }
 
 
-    console.log({ logged })
+    //console.log({ logged })
     return (
         <>
 

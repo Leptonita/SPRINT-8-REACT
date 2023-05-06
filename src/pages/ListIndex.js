@@ -60,7 +60,7 @@ function ListIndex() {
         return <ItemListShips key={id} name={ship.name} model={ship.model} id={id} />
     })
 
-    console.log('desde ListIndex', state.user);
+    //console.log('desde ListIndex', state.user);
     return (
         <DivListIndex>
 

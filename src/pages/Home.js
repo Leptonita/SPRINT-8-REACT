@@ -1,12 +1,13 @@
 import NavBarLogin from '../components/NavBar';
 import { DivHome, DivTxt, LinkBtn, ButtonShips, Message } from './Home-styled';
 import { useMyContext } from '../application/Provider';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Login from '../components/Login';
 
 const Home = () => {
     const [state, setState] = useMyContext();
     const logged = !!state.user;
+
     //const logged = false;
     //inicializo para las 3 el context (!!state.user) para que se abra la ventana automáticamente si no está logeado.
     //si sólo quiero activar la pantalla de login con boton, entonces los 3 se inicializan en false

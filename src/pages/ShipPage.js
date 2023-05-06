@@ -32,14 +32,14 @@ const ShipPage = () => {
     useEffect(() => {
         fetch(URL_IMG)
             .then(res => {
-                console.log({ res });
+                //console.log({ res });
                 setPictStatus(res.status);
             })
             .catch(err => console.log('error', err))
     }, [])
 
     const shipInfo = { ...shipData }
-    console.log({ shipInfo });
+    //console.log({ shipInfo });
 
     const showPicture = (pictStatus) => {
         if (pictStatus === 200) {
@@ -52,7 +52,7 @@ const ShipPage = () => {
     }
 
     const pilotsArr = shipInfo.pilots;
-    console.log({ pilotsArr });
+    //console.log({ pilotsArr });
     let pilots = "";
     if (typeof pilotsArr !== 'undefined' && pilotsArr.length > 0) {
         pilots = pilotsArr.map((pilot) => {
