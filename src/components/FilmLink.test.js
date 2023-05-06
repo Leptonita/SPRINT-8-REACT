@@ -26,7 +26,7 @@ describe('FilmLink', () => {
 
         await expect(screen.findByAltText(/Film1/i));
 
-        screen.debug();
+        //screen.debug();
     });
 
 

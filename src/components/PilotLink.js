@@ -1,9 +1,9 @@
-import { useMyContext } from '../application/Provider';
+//import { useMyContext } from '../application/Provider';
 import { DivPilotLink, ImgPilotLink } from './PilotLink-styled';
 import { Link } from 'react-router-dom';
 
 const PilotLink = ({ idPilot }) => {
-    const [state, setState] = useMyContext();
+    //const [state, setState] = useMyContext();
 
     const IMGPHOTOSRC = "https://starwars-visualguide.com/assets/img/characters/";
 

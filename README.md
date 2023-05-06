@@ -57,7 +57,10 @@ EX9 - Adding films with a structure similar to pilots' (a photo linkble to its f
 EX10 - testing
 
 :::: Due to compatibility issues between testing library / jest / axios I had to modify package.json:
-"test": "react-scripts test --transformIgnorePatterns node_modules/?!my-library-dir/"
+:::: this didn't do the job correctly:::::"test": "react-scripts test --transformIgnorePatterns node_modules/?!my-library-dir/" 
+
+Finally it works for me updating package.json with:
+"test": "react-scripts test --transformIgnorePatterns node_modules/?!axios/",
 
 and I wrapped each component tested with Provider and even with Routes when necessary.
 

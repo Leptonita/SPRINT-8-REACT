@@ -53,6 +53,6 @@ describe('Login', () => {
         fireEvent.click(btnLogin);
         const messageTxt = screen.getByText(/valid email/i);
         expect(messageTxt).toBeInTheDocument();
-        //screen.debug();/**/
+        screen.debug();/**/
     });
 }); 

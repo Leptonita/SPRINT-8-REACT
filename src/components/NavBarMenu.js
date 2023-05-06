@@ -1,13 +1,12 @@
 import { useMatch } from 'react-router-dom';
 import { UlMenu, LiMenu, NavbarLink } from './NavBar-styled';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useMyContext } from '../application/Provider';
 import Login from './Login';
 
 const NavBarMenu = () => {
     const [state, setState] = useMyContext();
     const logged = !!state.user;
-    const isHome = state.home
 
     //console.log("state.home", state.home)
     //const logged = false;

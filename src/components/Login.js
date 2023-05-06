@@ -102,6 +102,10 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
     const handleSignup = (event) => {
 
         event.preventDefault();
+
+        emailValidation();
+        passwordValidation();
+
         //find user 
         const userStored = users.find(client => client.email === email);
         //if user's email already exists in users Array in localStorage
@@ -130,8 +134,8 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
     const handleLogin = (event) => {
         event.preventDefault();
 
-        /*  emailValidation();
-         passwordValidation(); */
+        emailValidation();
+        passwordValidation(); /* */
 
         const userStored = users.find(client => client.email === email);
         //if user's email  already exists in users Array in localStorage

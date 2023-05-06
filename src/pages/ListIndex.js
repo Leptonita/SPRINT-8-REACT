@@ -4,10 +4,10 @@ import ItemListShips from "../components/ItemListShips";
 import Loading from "../components/Loading";
 import { DivListIndex, ButtonMore } from "./ListIndex-styled";
 
-import { useMyContext } from '../application/Provider';
+//import { useMyContext } from '../application/Provider';
 
 function ListIndex() {
-    const [state, setState] = useMyContext();
+    //const [state, setState] = useMyContext();
     const [spaceShips, setSpaceShips] = useState([]);
     const [status, setStatus] = useState(200);
 

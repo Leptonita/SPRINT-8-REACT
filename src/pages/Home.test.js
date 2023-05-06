@@ -15,7 +15,7 @@ beforeAll(() => render(
 
 describe('Home', () => {
     it('must display a text containing galaxy', () => {
-        //screen.debug;
+        screen.debug;
         const finalTxt = screen.getByText(/a long time ago in a galaxy/i);
         expect(finalTxt).toBeInTheDocument();
     });

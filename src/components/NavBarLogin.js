@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import logo from '../assets/img/sw_logo.webp';
 import { DivBarGridLogin, DivImg, LogoImg, DivLoginRight, DivLogin, DivLoginLeft, DivLoginLeftLinks, LinkIds, SpanLogin, MenuMobile, DivUser } from './NavBar-styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,10 +28,7 @@ const NavBarLogin = () => {
         setModalState((m) => !m);
         setLoginIsClicked(false);
     }
-    /* const showModal = () => {
-         setModalState(!modalState);
-     }  */
-    //console.log({ loginIsClicked }, { signupIsClicked }, { modalState })
+
     return (
 
         <DivBarGridLogin>
