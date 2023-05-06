@@ -88,6 +88,10 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
     }
 
     const handleSignup = (event) => {
+
+        emailValidation();
+        passwordValidation();
+
         event.preventDefault();
         //find user 
         const userStored = users.find(client => client.email === email);
@@ -96,7 +100,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
             setUserLS(userStored);
             setMessage("This user's email address already exists");
         }
-        console.log({ userStored }, 'validPassword', validPassword, 'validEmail', validEmail)
+        //console.log({ userStored }, 'validPassword', validPassword, 'validEmail', validEmail)
         //Sign up create new user
         if (!userStored && validPassword && validEmail) {
             //add new user
@@ -104,7 +108,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
             setUserLS({ ...userLS, "password": password });
             //setIsLoggedIn(true);
             setMessage('Welcome to the app, you are in');
-            console.log(email, ", ", password);
+            console.log("email user:", email, ", password: ", password);
             setState({ ...state, user: email });
             changeModalVis(false);
         } else {
@@ -197,8 +201,8 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
                         <DivInput>
                             <Input name="Password" type="password" placeholder="Password" value={password}
                                 onChange={handlePassword}
-                                /* onKeyUp={passwordValidation}
-                                onBlur={passwordValidation} */
+                                onKeyUp={passwordValidation}
+                                onBlur={passwordValidation}
                                 isValid={validPassword}
                             />
                             <Icon valid={validPassword}>

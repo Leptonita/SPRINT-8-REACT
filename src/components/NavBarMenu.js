@@ -1,6 +1,6 @@
 import { useMatch } from 'react-router-dom';
 import { UlMenu, LiMenu, NavbarLink } from './NavBar-styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMyContext } from '../application/Provider';
 import Login from './Login';
 
@@ -11,9 +11,13 @@ const NavBarMenu = () => {
     //const logged = false;
     //inicializo para las 3 el context (!!state.user) para que se abra la ventana automáticamente si no está logeado.
     //si sólo quiero activar la pantalla de login con boton, entonces los 3 se inicializan en false
-    const [loginIsClicked, setLoginIsClicked] = useState(false);
-    const [signupIsClicked, setSignupIsClicked] = useState(false);
-    const [modalState, setModalState] = useState(false);
+    const [loginIsClicked, setLoginIsClicked] = useState(!logged);
+    const [signupIsClicked, setSignupIsClicked] = useState(!logged);
+    const [modalState, setModalState] = useState(!logged);
+
+    /* useEffect(() => {
+        setModalState(!logged);
+    }, []) */
 
     const showModalLogin = () => {
         setLoginIsClicked((c) => !c);
@@ -25,7 +29,9 @@ const NavBarMenu = () => {
         setSignupIsClicked((c) => !c);
         setModalState((m) => !m);
         setLoginIsClicked((c) => !c);
+        console.log(modalState)
     }
+
 
     console.log({ logged })
     return (
@@ -50,17 +56,17 @@ const NavBarMenu = () => {
                         color: useMatch({ path: "/starships" }) ? "#fffade" : "#b4b4b4",
                         /* borderBottom: useMatch({ path: "/starships" }) ? "4px solid #fffaded2" : "0px",
                         display: useMatch({ path: "/" }) ? "none" : "flex" */
-                        display: logged ? "flex" : "none" /**/
+                        /*display: logged ? "flex" : "none" */
                     }}
-                    to="/starships" >
+                    to="/starships">
                     <LiMenu> STARSHIPS</LiMenu>
                 </NavbarLink>
             </UlMenu >
-            <Login
+            {modalState && < Login
                 modalVis={modalState} changeModalVis={setModalState}
                 modalLog={loginIsClicked} changeLogClick={setLoginIsClicked}
                 modalSign={signupIsClicked} changeSignClick={setSignupIsClicked}
-            />
+            />}
         </>
     )
 }
