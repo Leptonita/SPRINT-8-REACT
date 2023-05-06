@@ -61,9 +61,14 @@ EX10 - testing
 
 and I wrapped each component tested with Provider and even with Routes when necessary.
 
-3 Components tested: 
+4 Components tested: 
+
 src/components/Login.test.js
+
 src/components/NavBarLogin.test.js
+
+src/components/FilmLink.test.js
+
 src/pages/Home.test.js
 
       
