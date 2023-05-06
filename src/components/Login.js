@@ -48,6 +48,18 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         passwordValidation();
     }, []);
 
+    const closeModal = () => {
+        changeModalVis(false);
+        changeLogClick(false);
+        changeSignClick(false);
+    }
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            closeModal();
+        }
+    }, [isLoggedIn]);
+
     const handleEmail = (event) => {
         const inputEmail = event.target.value;
 
@@ -89,10 +101,11 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
 
     const handleSignup = (event) => {
 
+        event.preventDefault();
+
         emailValidation();
         passwordValidation();
 
-        event.preventDefault();
         //find user 
         const userStored = users.find(client => client.email === email);
         //if user's email already exists in users Array in localStorage
@@ -100,27 +113,29 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
             setUserLS(userStored);
             setMessage("This user's email address already exists");
         }
-        //console.log({ userStored }, 'validPassword', validPassword, 'validEmail', validEmail)
+        console.log({ userStored }, 'validPassword', validPassword, 'validEmail', validEmail)
         //Sign up create new user
         if (!userStored && validPassword && validEmail) {
             //add new user
             setUsers([...users, { key: users.length + 1, email, password }]);
             setUserLS({ ...userLS, "password": password });
-            //setIsLoggedIn(true);
+            setIsLoggedIn(true);
             setMessage('Welcome to the app, you are in');
             console.log("email user:", email, ", password: ", password);
             setState({ ...state, user: email });
-            changeModalVis(false);
+
         } else {
             //check email and password for login
+            setIsLoggedIn(false);
         }
+
     }
 
     const handleLogin = (event) => {
         event.preventDefault();
 
         emailValidation();
-        passwordValidation();
+        passwordValidation(); /* */
 
         const userStored = users.find(client => client.email === email);
         //if user's email  already exists in users Array in localStorage
@@ -130,14 +145,14 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
             if (userStored !== null) {
                 if (userStored.password === password) {
                     console.log({ userStored }, 'logged');
-                    //setIsLoggedIn(true);
+                    setIsLoggedIn(true);
                     setUserLS(userStored);
                     setMessage('Welcome to the app, you are in');
                     setState({ ...state, user: email });
-                    changeModalVis(false);
+                    console.log("email user:", email, ", password: ", password);
                 } else {
                     console.log({ userStored }, 'NO-logged');
-                    //setIsLoggedIn(false);
+                    setIsLoggedIn(false);
                     setUserLS({ ...userLS, "password": password });
                     setMessage('Sorry, check the password');
                     setState({ ...state, user: null });
@@ -157,13 +172,9 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
         setValidPassword(false);
 
         setIsLoggedIn(false);
+
     }
 
-    const closeModal = () => {
-        changeModalVis(false);
-        changeLogClick(false);
-        changeSignClick(false);
-    }
 
     return (
         <>

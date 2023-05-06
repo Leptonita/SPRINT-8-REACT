@@ -21,7 +21,7 @@ const PilotPage = () => {
         axios
             .get(`https://swapi.dev/api/people/${idPilot}/`)
             .then(res => {
-                console.log(idPilot, { res });
+                //console.log(idPilot, { res });
                 setPilotData(res.data);
             })
             .catch(err => console.log('error', err))
@@ -32,7 +32,7 @@ const PilotPage = () => {
     useEffect(() => {
         fetch(URL_IMG)
             .then(res => {
-                console.log({ res });
+                //console.log({ res });
                 setPictStatus(res.status);
             })
             .catch(err => console.log('error', err))

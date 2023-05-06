@@ -17,12 +17,12 @@ beforeEach(() => render(
 ))
 
 describe('Login', () => {
-    it('must display a text containing New Account', () => {
+    it('must display a text containing "New Account"', () => {
         //screen.debug;
         const txtNew = screen.getByText(/New Account/i);
         expect(txtNew).toBeInTheDocument();
     });
-    it('must display a text containing New Account', () => {
+    it('must display a text containing LOGIN', () => {
         const btnTxt = screen.getByRole('button', { name: /LOGIN/i });
         expect(btnTxt).toBeInTheDocument();
     });
@@ -53,6 +53,6 @@ describe('Login', () => {
         fireEvent.click(btnLogin);
         const messageTxt = screen.getByText(/valid email/i);
         expect(messageTxt).toBeInTheDocument();
-        //screen.debug();/**/
+        screen.debug();/**/
     });
 }); 

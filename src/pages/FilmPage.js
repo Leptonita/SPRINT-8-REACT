@@ -21,7 +21,7 @@ const FilmPage = () => {
         axios
             .get(`https://swapi.dev/api/films/${idFilm}/`)
             .then(res => {
-                console.log({ idFilm }, { res });
+                //console.log({ idFilm }, { res });
                 setFilmData(res.data);
             })
             .catch(err => console.log('error', err))
