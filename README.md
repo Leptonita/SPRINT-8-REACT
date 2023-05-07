@@ -48,17 +48,27 @@ EX6 - Login - SignUp in a same component (Login).
 
 EX7 -  Private routes and CONTEXT API to prevent visiting SpaceShips without a previous Login.
 
-EX8 - Adding pilots photos linkable to their own page information if it is available on. 
+      OLD -- EX8 -- Adding pilots photos linkable to their own page information if it is available on. (old version linking to PilotPage)
 
-EX9 - Adding films with a structure similar to pilots' (a photo linkble to its film page).
+      OLD -- EX9 -- Adding films with a structure similar to pilots' (a photo linkble to its film page) (old version linking to FilmPage).
+      
 
-      changed login entry dynamic with button "start" only access from Home
+++ NOW ++ 
+EX8 and EX9 ---  updated --- pilots and movies cards are set inside ShipPage"
+
+
+      OLD --- changed login entry dynamic with button "start" only access from Home
+    
+++ NOW ++ Login appears automatically if the user is not logged in
+
 
 EX10 - testing
 
 :::: Due to compatibility issues between testing library / jest / axios I had to modify package.json:
-:::: this didn't do the job correctly:::::"test": "react-scripts test --transformIgnorePatterns node_modules/?!my-library-dir/" 
 
+      OLD --- this didn't do the job correctly:::::"test": "react-scripts test --transformIgnorePatterns node_modules/?!my-library-dir/" 
+
+++ NOW ++ 
 Finally it works for me updating package.json with:
 "test": "react-scripts test --transformIgnorePatterns node_modules/?!axios/",
 

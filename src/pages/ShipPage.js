@@ -2,13 +2,14 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt, DivPosters } from './ShipPage-styled';
+import { DivShip, ShipTitle, ImageShip, ImageContainer, DivTextCentered, DivGrid, InfoTxt, SubTitle, DivFilmsPilots, DivPosters } from './ShipPage-styled';
 import NoPicture from '../assets/img/nopicture.jpg';
 
 //import { useMyContext } from '../application/Provider';
-
-import PilotLink from '../components/PilotLink';
-import FilmLink from '../components/FilmLink';
+import Pilot from '../components/Pilot';
+//import PilotLink from '../components/PilotLink';
+import Film from '../components/Film';
+//import FilmLink from '../components/FilmLink';
 
 const ShipPage = () => {
     const { id } = useParams();
@@ -59,7 +60,8 @@ const ShipPage = () => {
             const piloturlArr = pilot.split("/");
             const numPilot = piloturlArr[piloturlArr.length - 2];
             //console.log(numPilot);
-            return <PilotLink key={numPilot} idPilot={numPilot} />
+            //return <PilotLink key={numPilot} idPilot={numPilot} />
+            return <Pilot key={numPilot} idPilot={numPilot} />
         })
     } else {
         pilots = <InfoTxt> </InfoTxt>;
@@ -73,10 +75,11 @@ const ShipPage = () => {
             const filmurlArr = film.split("/");
             const numFilm = filmurlArr[filmurlArr.length - 2];
             //console.log(numFilm);
-            return <FilmLink key={numFilm} idFilm={numFilm} />
+            //return <FilmLink key={numFilm} idFilm={numFilm} />
+            return <Film key={numFilm} idFilm={numFilm} />
         })
     } else {
-        pilots = <InfoTxt> </InfoTxt>;
+        films = <InfoTxt> </InfoTxt>;
     }
 
     return (
@@ -107,8 +110,7 @@ const ShipPage = () => {
                                 <p>CARGO CAPACITY: <InfoTxt>{shipInfo.cargo_capacity}</InfoTxt></p>
                                 <p>CONSUMABLES: <InfoTxt>{shipInfo.consumables}</InfoTxt></p>
                                 <br />
-                                <div>PILOTS: <DivPosters>{pilots}</DivPosters> </div>
-                                <div>FILMS: <DivPosters>{films}</DivPosters> </div>
+
                                 <br />
                             </div>
                             <div>
@@ -119,6 +121,16 @@ const ShipPage = () => {
 
                             </div>
                         </DivGrid>
+
+                        <DivFilmsPilots>
+                            {shipInfo.pilots.length > 0 && <SubTitle>PILOTS:</SubTitle>}
+                            <DivPosters>{pilots}</DivPosters>
+                        </DivFilmsPilots>
+
+                        <DivFilmsPilots>
+                            <SubTitle>FILMS:</SubTitle>
+                            <DivPosters>{films}</DivPosters>
+                        </DivFilmsPilots>
                     </div>
                 </>)}
         </DivShip>
