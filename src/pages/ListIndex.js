@@ -63,7 +63,7 @@ function ListIndex() {
     //console.log('desde ListIndex', state.user);
     return (
         <DivListIndex>
-
+            "SCROLL"
             {spaceShips.length === 0
                 ? <Loading />
                 : <ul>{listShips}</ul>
