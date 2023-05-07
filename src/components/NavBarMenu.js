@@ -12,6 +12,7 @@ const NavBarMenu = () => {
     //const logged = false;
     //inicializo para las 3 el context (!!state.user) para que se abra la ventana automáticamente si no está logeado.
     //si sólo quiero activar la pantalla de login con boton, entonces los 3 se inicializan en false
+
     const [loginIsClicked, setLoginIsClicked] = useState(!logged);
     const [signupIsClicked, setSignupIsClicked] = useState(!logged);
     const [modalState, setModalState] = useState(!logged);

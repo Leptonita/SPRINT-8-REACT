@@ -159,7 +159,7 @@ const Login = ({ modalVis, modalLog, modalSign, changeModalVis, changeLogClick, 
                 }
             }
         } else {
-            setMessage('Sorry, this email is not registered');
+            setMessage('This email address is not registered yet');
         }
     }
 

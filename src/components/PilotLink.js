@@ -11,6 +11,7 @@ const PilotLink = ({ idPilot }) => {
         <DivPilotLink>
             <Link to={`/pilot/${idPilot}`}>
                 <ImgPilotLink src={IMGPHOTOSRC + idPilot + ".jpg"} alt={`Pilot${idPilot}`} />
+
             </Link>
         </DivPilotLink>
     )
