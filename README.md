@@ -51,7 +51,7 @@ EX7 -  Private routes and CONTEXT API to prevent visiting SpaceShips without a p
       OLD -- EX8 -- Adding pilots photos linkable to their own page information if it is available on. (old version linking to PilotPage)
 
       OLD -- EX9 -- Adding films with a structure similar to pilots' (a photo linkble to its film page) (old version linking to FilmPage).
-      
+
 
 ++ NOW ++ 
 EX8 and EX9 ---  updated --- pilots and movies cards are set inside ShipPage"
@@ -74,13 +74,13 @@ Finally it works for me updating package.json with:
 
 and I wrapped each component tested with Provider and even with Routes when necessary.
 
-4 Components tested: 
+
+
+3 Components tested: 
 
 src/components/Login.test.js
 
 src/components/NavBarLogin.test.js
-
-src/components/FilmLink.test.js
 
 src/pages/Home.test.js
 
@@ -88,6 +88,8 @@ src/pages/Home.test.js
 
        
       
+
+
 
 
 # Getting Started with Create React App
