@@ -59,7 +59,7 @@ const Pilot = ({ idPilot }) => {
                         <ImageContainer>
                             {showPicture(pictStatus)}
                         </ImageContainer>
-                        <DivDescription>
+                        <DivDescription className='desc'>
                             <Header>
                                 <PiTitle>
                                     {pilotData.name}  </PiTitle>

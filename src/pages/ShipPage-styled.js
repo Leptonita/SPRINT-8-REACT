@@ -108,6 +108,9 @@ margin-top: 20px;
 export const DivPosters = styled.div`
 display: flex;
 flex-wrap: wrap;
-max-width: 750px;
+max-width: 1020px;
 
+@media(max-width: 768px) {
+     max-width: 750px;
+  }
 `;

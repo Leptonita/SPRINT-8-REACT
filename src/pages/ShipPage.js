@@ -22,7 +22,7 @@ const ShipPage = () => {
         axios
             .get(`https://swapi.dev/api/starships/${id}/`)
             .then(res => {
-                console.log(id, { res });
+                //console.log(id, { res });
                 setShipData(res.data);
             })
             .catch(err => console.log('error', err))

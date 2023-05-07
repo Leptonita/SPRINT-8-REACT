@@ -1,23 +1,31 @@
 import styled from "styled-components";
 
 export const DivPilot = styled.div`
-width: 100%; 
+width: 100%;
+max-width : 490px ;
 color: #f9f9f9;
-
+margin: 0 auto;
+padding: 0 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+@media(max-width: 769px) {
+ width: 70%;
+ max-width : 650px ;
+  }
 `;
 
 export const Header = styled.div`
 display: flex;
 flex-direction: column;
-min-width: 350px;
+width: 100%;
+min-width: 200px;
 align-items: flex-end;
 
 @media(max-width: 768px) {
-     width: 70%;
-     min-width: 220px;
+     
+     max-width: 600px;
   }
 `;
 
@@ -26,7 +34,7 @@ text-transform: uppercase;
 font-size: 1.4rem;
 font-weight: 700;
 text-align: right;
-padding-top: 40px;
+padding-top: 20px;
 `;
 
 export const TxtPilot = styled.div`
@@ -55,15 +63,15 @@ background-color: rgba(21, 21, 29, 0.80);
 
 @media(max-width: 768px) {
     flex-direction: column;
-     width: 70%;
-     min-width: 290px;
+     width: 90%;
+     min-width: 350px;
   }
 `;
 
 export const ImageContainer = styled(Border)`
 display: flex;
 justify-content: center;
-max-width: 45%;
+max-width: 50%;
 
 @media(max-width: 768px) {
      width: 100%;
@@ -84,7 +92,8 @@ border-bottom-left-radius:130px;
 
 export const DivDescription = styled.div`
 font-size: 1rem;
-min-width: 300px;
+width: 100%;
+min-width: 250px;
 align-items: center;
 display: flex;
 flex-direction: column;
@@ -93,7 +102,7 @@ padding: 30px;
 
 @media(max-width: 768px) {
      display: grid;
-          
+         
      grid-template-columns: 1fr;
      margin-top: 10px;
      margin-bottom: 15px;

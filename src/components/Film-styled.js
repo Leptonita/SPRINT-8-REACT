@@ -1,23 +1,29 @@
 import styled from "styled-components";
 
 export const DivFilm = styled.div`
-width: 100%; 
+width: 98%; 
 color: #f9f9f9;
-
+margin: 0 auto;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+@media(max-width: 769px) {
+ width: 96%;
+max-width : 700px ;
+  }
 `;
 
 export const Header = styled.div`
 display: flex;
 flex-direction: column;
+width: 100%;
 min-width: 350px;
 align-items: flex-end;
 
-@media(max-width: 768px) {
-     width: 90%;
+@media(max-width: 768px) {     
      min-width: 290px;
+     max-width: 700px;
   }
 `;
 
@@ -46,7 +52,7 @@ background-color: rgba(21, 21, 29, 0.80);
 
 @media(max-width: 768px) {
     flex-direction: column;
-     width: 90%;
+     width: 100%;
      min-width: 290px;
   }
 `;
@@ -58,7 +64,7 @@ max-width: 50%;
 
 @media(max-width: 768px) {
      width: 100%;
-     max-width: 568px;
+     max-width: 768px;
   }
 `;
 export const ImageFilm = styled.img`
@@ -85,6 +91,7 @@ padding: 30px;
 
 @media(max-width: 768px) {
      display: grid;
+     min-width: 200px;
      max-width: 100%;     
      grid-template-columns: 1fr;
      margin-top: 10px;
