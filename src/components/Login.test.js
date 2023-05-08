@@ -53,6 +53,29 @@ describe('Login', () => {
         fireEvent.click(btnLogin);
         const messageTxt = screen.getByText(/valid email/i);
         expect(messageTxt).toBeInTheDocument();
+        /*screen.debug();*/
+    });
+    it('must display an invalid password message when input password is "aa"', () => {
+        const btnLogin = screen.getByRole("button", { name: "LOGIN" });
+        const passwordInput = screen.getByPlaceholderText("Password");
+
+
+        fireEvent.change(passwordInput, { target: { value: 'aa' } })
+        fireEvent.click(btnLogin);
+        const messageTxt = screen.getByText(/password must have 4 to 12 characters/i);
+        expect(messageTxt).toBeInTheDocument();
         screen.debug();/**/
+    });
+
+    it('must display "valid password" when input password is "1234"', () => {
+        const btnLogin = screen.getByRole("button", { name: "LOGIN" });
+        const passwordInput = screen.getByPlaceholderText("Password");
+
+
+        fireEvent.change(passwordInput, { target: { value: '1234' } })
+        fireEvent.click(btnLogin);
+        const messageTxt = screen.getByText(/valid password/i);
+        expect(messageTxt).toBeInTheDocument();
+        /*screen.debug();*/
     });
 }); 

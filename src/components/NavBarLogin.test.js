@@ -5,6 +5,8 @@ import NavBarLogin from "./NavBarLogin";
 import Provider from "../application/Provider";
 import Routes from "../application/Router";
 
+
+
 describe('NavBarLogin', () => {
 
     test('uses correct src', () => {
@@ -20,6 +22,4 @@ describe('NavBarLogin', () => {
 
         //screen.debug();
     });
-
-
 }); 

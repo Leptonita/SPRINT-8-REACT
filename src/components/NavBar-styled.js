@@ -105,8 +105,21 @@ cursor: pointer;
 }
 `;
 
-export const SpanLogin = styled(LinkIds)`
+export const SpanLogin = styled.button`
+background: none;
+color: inherit;
+border: none;
+padding: 0;
+font: inherit;
+font-size: 1.1rem;
 margin-right: 20px;
+cursor: pointer;
+
+&:hover {
+  color: #fff;  
+  text-shadow: 2px 2px 5px rgb(255, 255, 255, 0.7);
+}
+
 @media(max-width: 768px) {
      display:none;
   }
