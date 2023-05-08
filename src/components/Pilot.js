@@ -65,9 +65,9 @@ const Pilot = ({ idPilot }) => {
                                     {pilotData.name}  </PiTitle>
 
                                 <TxtPilot>
-                                    PILOT
-                                    <br />
-                                    <hr />
+
+
+                                    <hr />PILOT
                                 </TxtPilot>
 
                             </Header>

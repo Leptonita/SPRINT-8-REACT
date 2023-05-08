@@ -39,7 +39,7 @@ const NavBarLogin = () => {
                 {isActive && (
                     <DivLoginLeftLinks>
                         <br />
-                        <p onClick={showModalLogin}><LinkIds>LOGIN</LinkIds> </p>
+                        <p onClick={showModalLogin}><LinkIds>LOG IN</LinkIds> </p>
                         {loginIsClicked &&
                             <Login
                                 modalVis={modalState} changeModalVis={setModalState}

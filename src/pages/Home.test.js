@@ -4,7 +4,6 @@ import Home from "./Home";
 import Provider from "../application/Provider";
 import Routes from "../application/Router";
 
-
 beforeAll(() => render(
     <Provider>
         <Routes>
@@ -24,7 +23,6 @@ describe('Home', () => {
         const finalTxt = screen.queryByText(/felicidad/i);
         expect(finalTxt).not.toBeInTheDocument();
     });
-
 
 });
 
